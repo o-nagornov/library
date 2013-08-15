@@ -18,12 +18,12 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$user = User;
-		if (($user = User::model()->findByAttributes(array('email' => $this->email))) === null)
+		$user = null;
+		if (($user = User::model()->findByAttributes(array('email' => $this->username))) === null)
 		{
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}
-		else if (($user = User::model()->findByAttributes(array('email' => $this->email, 'password' => md5($this->password)))) === null)
+		else if (($user = User::model()->findByAttributes(array('email' => $this->username, 'pass' => md5($this->password)))) === null)
 		{
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;	
 		}
