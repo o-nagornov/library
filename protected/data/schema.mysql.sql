@@ -12,7 +12,7 @@ USE `library` ;
 DROP TABLE IF EXISTS `library`.`tbl_book` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_book` (
-  `id_book` INT NOT NULL ,
+  `id_book` INT NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(45) NULL ,
   `description` TEXT NULL ,
   `current_count` INT NULL ,
@@ -29,7 +29,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `library`.`tbl_author` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_author` (
-  `id_author` INT NOT NULL ,
+  `id_author` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   PRIMARY KEY (`id_author`) ,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `library`.`tbl_query` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_query` (
-  `id_query` INT NOT NULL ,
+  `id_query` INT NOT NULL AUTO_INCREMENT ,
   `creation_date` TIMESTAMP NULL ,
   `status` VARCHAR(45) NULL ,
   `book_id_book` INT NOT NULL ,
