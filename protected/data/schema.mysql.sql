@@ -61,7 +61,7 @@ CREATE  TABLE IF NOT EXISTS `library`.`tbl_user` (
   `parentname` VARCHAR(45) NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `pass` VARCHAR(45) NOT NULL ,
-  `access` VARCHAR(45) NULL ,
+  `role` VARCHAR(45) NULL ,
   `check_hash` VARCHAR(45) NULL ,
   PRIMARY KEY (`id_user`) ,
   UNIQUE INDEX `idUser_UNIQUE` (`id_user` ASC) ,

@@ -29,7 +29,7 @@ class UserIdentity extends CUserIdentity
 		}
 		else
 		{
-			$this->_id = $user->access;
+			$this->_id = $user->id_user;
 			$this->errorCode=self::ERROR_NONE;
 			$this->setState('email', $user->email);
 			$this->setState('name', $user->name." ".$user->surname);

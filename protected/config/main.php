@@ -33,8 +33,13 @@ return array(
 	// application components
 	'components'=>array(
 		'user'=>array(
+			'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+		),
+		'authManager'=>array(
+			'class' => 'CPhpAuthManager',
+			'defaultRoles' => array('guest'),
 		),
 		// uncomment the following to enable URLs in path-format
 		/*
