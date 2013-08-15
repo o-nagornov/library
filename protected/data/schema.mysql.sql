@@ -18,6 +18,7 @@ CREATE  TABLE IF NOT EXISTS `library`.`tbl_book` (
   `current_count` INT NULL ,
   `total_count` INT NULL ,
   `file_link` VARCHAR(45) NULL ,
+  `year` INT NULL ,
   PRIMARY KEY (`id_book`) ,
   UNIQUE INDEX `idBook_UNIQUE` (`id_book` ASC) )
 ENGINE = InnoDB;
@@ -76,7 +77,7 @@ DROP TABLE IF EXISTS `library`.`tbl_query` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_query` (
   `id_query` INT NOT NULL AUTO_INCREMENT ,
-  `creation_date` TIMESTAMP NULL ,
+  `creation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
   `status` VARCHAR(45) NULL ,
   `book_id_book` INT NOT NULL ,
   `user_id_user` INT NOT NULL ,
@@ -145,11 +146,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `library`.`tbl_book_has_Author`
+-- Table `library`.`tbl_book_has_author`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `library`.`tbl_book_has_Author` ;
+DROP TABLE IF EXISTS `library`.`tbl_book_has_author` ;
 
-CREATE  TABLE IF NOT EXISTS `library`.`tbl_book_has_Author` (
+CREATE  TABLE IF NOT EXISTS `library`.`tbl_book_has_author` (
   `book_id_book` INT NOT NULL ,
   `author_id_author` INT NOT NULL ,
   PRIMARY KEY (`book_id_book`, `author_id_author`) ,
