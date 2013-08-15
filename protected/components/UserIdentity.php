@@ -7,6 +7,9 @@
  */
 class UserIdentity extends CUserIdentity
 {
+	
+	private $_id;
+	
 	/**
 	 * Authenticates a user.
 	 * In practical applications, this should be changed to authenticate
@@ -15,21 +18,27 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$user;
-		if (($user = User::model()->findByAttributes(array('username' => $this->username))) === null)
+		$user = User;
+		if (($user = User::model()->findByAttributes(array('email' => $this->email))) === null)
 		{
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}
-		else if (($user = User::model()->findByAttributes(array('username' => $this->username, 'password' => md5($this->password)))) === null)
+		else if (($user = User::model()->findByAttributes(array('email' => $this->email, 'password' => md5($this->password)))) === null)
 		{
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;	
 		}
 		else
 		{
+			$this->_id = $user->access;
 			$this->errorCode=self::ERROR_NONE;
-			$this->setState('name', $user->username);
 			$this->setState('email', $user->email);
+			$this->setState('name', $user->name." ".$user->surname);
 		}
 		return !$this->errorCode;
+	}
+	
+	public function getId()
+	{
+		return $this->_id;
 	}
 }
