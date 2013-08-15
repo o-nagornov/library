@@ -79,19 +79,19 @@ CREATE  TABLE IF NOT EXISTS `library`.`tbl_query` (
   `id_query` INT NOT NULL AUTO_INCREMENT ,
   `creation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
   `status` VARCHAR(45) NULL ,
-  `book_id_book` INT NOT NULL ,
-  `user_id_user` INT NOT NULL ,
+  `book_id` INT NOT NULL ,
+  `user_id` INT NOT NULL ,
   `comment` TEXT NULL ,
   PRIMARY KEY (`id_query`) ,
-  INDEX `fk_Query_Book1` (`book_id_book` ASC) ,
-  INDEX `fk_Query_User1` (`user_id_user` ASC) ,
+  INDEX `fk_Query_Book1` (`book_id` ASC) ,
+  INDEX `fk_Query_User1` (`user_id` ASC) ,
   CONSTRAINT `fk_Query_Book1`
-    FOREIGN KEY (`book_id_book` )
+    FOREIGN KEY (`book_id` )
     REFERENCES `library`.`tbl_book` (`id_book` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Query_User1`
-    FOREIGN KEY (`user_id_user` )
+    FOREIGN KEY (`user_id` )
     REFERENCES `library`.`tbl_user` (`id_user` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -106,26 +106,26 @@ DROP TABLE IF EXISTS `library`.`tbl_recommendation` ;
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_recommendation` (
   `id_recommendation` INT NOT NULL AUTO_INCREMENT ,
   `reason` VARCHAR(45) NULL ,
-  `book_id_book` INT NOT NULL ,
-  `target_id_user` INT NOT NULL ,
-  `user_id_user` INT NOT NULL ,
+  `book_id` INT NOT NULL ,
+  `target_user_id` INT NOT NULL ,
+  `user_id` INT NOT NULL ,
   PRIMARY KEY (`id_recommendation`) ,
   UNIQUE INDEX `idRecommenadation_UNIQUE` (`id_recommendation` ASC) ,
-  INDEX `fk_Recommenadation_Book1` (`book_id_book` ASC) ,
-  INDEX `fk_Recommenadation_User1` (`target_id_user` ASC) ,
-  INDEX `fk_Recommenadation_User2` (`user_id_user` ASC) ,
+  INDEX `fk_Recommenadation_Book1` (`book_id` ASC) ,
+  INDEX `fk_Recommenadation_User1` (`target_user_id` ASC) ,
+  INDEX `fk_Recommenadation_User2` (`user_id` ASC) ,
   CONSTRAINT `fk_Recommenadation_Book1`
-    FOREIGN KEY (`book_id_book` )
+    FOREIGN KEY (`book_id` )
     REFERENCES `library`.`tbl_book` (`id_book` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Recommenadation_User1`
-    FOREIGN KEY (`target_id_user` )
+    FOREIGN KEY (`target_user_id` )
     REFERENCES `library`.`tbl_user` (`id_user` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Recommenadation_User2`
-    FOREIGN KEY (`user_id_user` )
+    FOREIGN KEY (`user_id` )
     REFERENCES `library`.`tbl_user` (`id_user` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -151,18 +151,18 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `library`.`tbl_book_has_author` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_book_has_author` (
-  `book_id_book` INT NOT NULL ,
-  `author_id_author` INT NOT NULL ,
-  PRIMARY KEY (`book_id_book`, `author_id_author`) ,
-  INDEX `fk_Book_has_Author_Author1` (`author_id_author` ASC) ,
-  INDEX `fk_Book_has_Author_Book` (`book_id_book` ASC) ,
+  `book_id` INT NOT NULL ,
+  `author_id` INT NOT NULL ,
+  PRIMARY KEY (`book_id`, `author_id`) ,
+  INDEX `fk_Book_has_Author_Author1` (`author_id` ASC) ,
+  INDEX `fk_Book_has_Author_Book` (`book_id` ASC) ,
   CONSTRAINT `fk_Book_has_Author_Book`
-    FOREIGN KEY (`book_id_book` )
+    FOREIGN KEY (`book_id` )
     REFERENCES `library`.`tbl_book` (`id_book` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Book_has_Author_Author1`
-    FOREIGN KEY (`author_id_author` )
+    FOREIGN KEY (`author_id` )
     REFERENCES `library`.`tbl_author` (`id_author` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -175,18 +175,18 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `library`.`tbl_book_has_keyword` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_book_has_keyword` (
-  `book_id_book` INT NOT NULL ,
-  `key_word_keyword` INT NOT NULL ,
-  PRIMARY KEY (`book_id_book`, `key_word_keyword`) ,
-  INDEX `fk_Book_has_Key_word_Key_word1` (`key_word_keyword` ASC) ,
-  INDEX `fk_Book_has_Key_word_Book1` (`book_id_book` ASC) ,
+  `book_id` INT NOT NULL ,
+  `keyword_id` INT NOT NULL ,
+  PRIMARY KEY (`book_id`, `keyword_id`) ,
+  INDEX `fk_Book_has_Key_word_Key_word1` (`keyword_id` ASC) ,
+  INDEX `fk_Book_has_Key_word_Book1` (`book_id` ASC) ,
   CONSTRAINT `fk_Book_has_Key_word_Book1`
-    FOREIGN KEY (`book_id_book` )
+    FOREIGN KEY (`book_id` )
     REFERENCES `library`.`tbl_book` (`id_book` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Book_has_Key_word_Key_word1`
-    FOREIGN KEY (`key_word_keyword` )
+    FOREIGN KEY (`keyword_id` )
     REFERENCES `library`.`tbl_keyword` (`id_keyword` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -199,18 +199,18 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `library`.`tbl_book_has_type` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_book_has_type` (
-  `book_id_book` INT NOT NULL ,
-  `type_id_type` INT NOT NULL ,
-  PRIMARY KEY (`book_id_book`, `type_id_type`) ,
-  INDEX `fk_Book_has_Type_Type1` (`type_id_type` ASC) ,
-  INDEX `fk_Book_has_Type_Book1` (`book_id_book` ASC) ,
+  `book_id` INT NOT NULL ,
+  `type_id` INT NOT NULL ,
+  PRIMARY KEY (`book_id`, `type_id`) ,
+  INDEX `fk_Book_has_Type_Type1` (`type_id` ASC) ,
+  INDEX `fk_Book_has_Type_Book1` (`book_id` ASC) ,
   CONSTRAINT `fk_Book_has_Type_Book1`
-    FOREIGN KEY (`book_id_book` )
+    FOREIGN KEY (`book_id` )
     REFERENCES `library`.`tbl_book` (`id_book` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Book_has_Type_Type1`
-    FOREIGN KEY (`type_id_type` )
+    FOREIGN KEY (`type_id` )
     REFERENCES `library`.`tbl_type` (`id_type` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
