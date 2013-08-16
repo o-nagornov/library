@@ -9,10 +9,10 @@ DELETE FROM tbl_type WHERE id_type > 0;
 DELETE FROM tbl_user WHERE id_user > 0;
 DELETE FROM tbl_book WHERE id_book > 0;
 
-INSERT INTO tbl_user VALUES (1, 'Олег', 'Нагорнов', 'Игоревич', 'nagornov.oi@gmail.com', MD5('[tkmuf'), 'root', MD5('1nagornov.oi@gmail.com1'));
-INSERT INTO tbl_user VALUES (2, 'Иван', 'Петров', 'Алексеевич', 'test@test.com', MD5('qwerty'), 'admin', MD5('1nagornov.oi@gmail.com'));
-INSERT INTO tbl_user VALUES (3, 'Петр', 'Сидоров', 'Александрович', 'test1@test.com', MD5('qwerty'), 'user', MD5('1nagornov.oi@gmail.com1'));
-INSERT INTO tbl_user VALUES (4, 'Сергей', 'Иванов', 'Иванович', 'test2@test.com', MD5('qwerty'), 'user', MD5('1nagornov.oi@gmail.com1'));
+INSERT INTO tbl_user VALUES (1, 'Олег', 'Нагорнов', 'Игоревич', 'nagornov.oi@gmail.com', MD5('qwerty'), 'root', MD5('1nagornov.oi@gmail.com1'));
+INSERT INTO tbl_user VALUES (2, 'Иван', 'Петров', 'Алексеевич', 'test@test.com', MD5('qwerty'), 'admin', MD5('2test@test.com2'));
+INSERT INTO tbl_user VALUES (3, 'Петр', 'Сидоров', 'Александрович', 'test1@test.com', MD5('qwerty'), 'user', MD5('3test1@test.com3'));
+INSERT INTO tbl_user VALUES (4, 'Сергей', 'Иванов', 'Иванович', 'test2@test.com', MD5('qwerty'), 'user', MD5('3test2@test.com3'));
 
 INSERT INTO tbl_author VALUES (1, 'Шило В.Л.');
 INSERT INTO tbl_author VALUES (2, 'Эрих Гамма');

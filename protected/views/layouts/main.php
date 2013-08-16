@@ -33,6 +33,7 @@
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Мои заявки', 'url'=>array('/query'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Поиск книг', 'url'=>array('/book'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
