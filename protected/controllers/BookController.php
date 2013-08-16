@@ -2,10 +2,17 @@
 
 class BookController extends Controller
 {
-	public function actionIndex()
+
+	public function actionIndex( $string = '' )
 	{
-		$this->actionList();
-	}
+	    $criteria = new CDbCriteria();
+	    if( strlen( $string ) > 0 ) {
+	        $criteria->addSearchCondition('title', $string, true, 'OR' );
+	    }
+	    $dataProvider = new CActiveDataProvider('Book', array( 'criteria' => $criteria, ) );
+	    $this->render('index', array( 'dataProvider' => $dataProvider ) );
+}
+	
 
 	public function actionList()
 	{
