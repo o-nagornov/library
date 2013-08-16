@@ -1,0 +1,52 @@
+<?php
+/* @var $this RecommendationController */
+/* @var $model Recommendation */
+/* @var $form CActiveForm */
+?>
+
+<div class="form">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'recommendation-form',
+	// Please note: When you enable ajax validation, make sure the corresponding
+	// controller action is handling ajax validation correctly.
+	// There is a call to performAjaxValidation() commented in generated controller code.
+	// See class documentation of CActiveForm for details on this.
+	'enableAjaxValidation'=>false,
+)); ?>
+
+	<p class="note">Fields with <span class="required">*</span> are required.</p>
+
+	<?php echo $form->errorSummary($model); ?>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'reason'); ?>
+		<?php echo $form->textField($model,'reason',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'reason'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'book_id_book'); ?>
+		<?php echo $form->textField($model,'book_id_book'); ?>
+		<?php echo $form->error($model,'book_id_book'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'target_id_user'); ?>
+		<?php echo $form->textField($model,'target_id_user'); ?>
+		<?php echo $form->error($model,'target_id_user'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'user_id_user'); ?>
+		<?php echo $form->textField($model,'user_id_user'); ?>
+		<?php echo $form->error($model,'user_id_user'); ?>
+	</div>
+
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->
