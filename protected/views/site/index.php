@@ -21,10 +21,11 @@ should you have any questions.</p>
 
 <?php
 
-if(Yii::app()->user->checkAccess('root')){
-    echo "hello, I'm administrator";
-}
-if(Yii::app()->user->checkAccess('user')){
-    echo "hello, I'm administrator";
+if (!Yii::app()->user->isGuest) {
+    $this->widget('application.components.StartSearchingWidget');
+	
+	$this->widget('application.components.MyRequestsWidget');
+	
+	$this->widget('application.components.MyBooksWidget');
 }
 ?>

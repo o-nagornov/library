@@ -14,33 +14,51 @@ $this->breadcrumbs=array(
 </p>
 
 <?php
-	if (sizeof($queries) == 0) {
-		echo "<h1>У вас нет заявок</h1>";
-	} else {
-		echo "
-		<table>
-			<tr>
-				<td>Какая книга</td>
-				<td>Книга доступна?</td>
-				<td>Сколько до меня?</td>
-				<td>Сколько после меня?</td>
-				<td>Сколько всего?</td>
-				<td>Убрать заявку</td>
-			</tr>
-		";
-		
-		foreach ($queries as $query) {
-			$book = $query['query']->book;
-			echo "<tr>
-					<td>".CHtml::link($book->title, array("/book/view", "id"=>$book->id_book))."</td>
-					<td>".$query['status']."</td>
-					<td>".$query['beforeMeCount']."</td>
-					<td>".$query['afterMeCount']."</td>
-					<td>".$query['totalCount']."</td>
-					<td>".CHtml::link("Отказаться", array("/query/abadon", "id"=>$query['query']->id_query))."</td>
-				</tr>";
-		}
-		
-		echo "</table>";
-	}
+
+	$types[""] = "";
+	$types += CHtml::listData(Type::model()->findAll(), 'id_type', 'type');
+	
+echo CHtml::beginForm(CHtml::normalizeUrl(array('/query/index')), 'get', array('id'=>'filter-form'))
+    ."<br>Название".CHtml::textField('title', (isset($_GET['title'])) ? $_GET['title'] : '', array('id'=>'title'))
+	."<br>У кого книга".CHtml::textField('name', (isset($_GET['name'])) ? $_GET['name'] : '', array('id'=>'name'))
+    ."<br>".CHtml::submitButton('Search', array('name'=>''))
+    .CHtml::endForm();
+
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$dataProvider,
+    'itemView'=>'_view',
+    'sortableAttributes'=>array(
+        'id'=>'cronologico',
+        'transaction'
+    ),
+    'id'=>'ajaxListView',
+));
+
+
+Yii::app()->clientScript->registerScript('search',
+    "var ajaxUpdateTimeout;
+    var ajaxRequest;
+    $('input#title').keyup(function(){
+        ajaxRequest = $('#filter-form').serialize();
+        clearTimeout(ajaxUpdateTimeout);
+        ajaxUpdateTimeout = setTimeout(function () {
+            $.fn.yiiListView.update(
+                'ajaxListView',
+                {data: ajaxRequest}
+            )
+        },
+        300);
+    });
+	$('input#name').keyup(function(){
+        ajaxRequest = $('#filter-form').serialize();
+        clearTimeout(ajaxUpdateTimeout);
+        ajaxUpdateTimeout = setTimeout(function () {
+            $.fn.yiiListView.update(
+                'ajaxListView',
+                {data: ajaxRequest}
+            )
+        },
+        300);
+    });
+	");
 ?>

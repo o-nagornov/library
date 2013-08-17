@@ -21,6 +21,36 @@ class SiteController extends Controller
 		);
 	}
 
+	public function actionAutocomplete()
+	{
+		
+		$term = Yii::app()->getRequest()->getParam('term');
+		
+		if (Yii::app()->request->isAjaxRequest && $term)
+		{
+         
+			$criteria = new CDbCriteria;
+			$criteria->addSearchCondition("CONCAT_WS(' ', surname, name, parentname)", $term, true, 'AND', 'LIKE');
+			$criteria->addSearchCondition("id_user", Yii::app()->user->id, true, 'AND', 'NOT LIKE');
+
+			
+			$users = User::model()->findAll($criteria);
+
+			$result = array();
+			foreach ($users as $user) {
+				$result[] = array(
+					'label' => $user->surname." ".$user->name." ".$user->parentname,
+					'value' => $user->surname." ".$user->name." ".$user->parentname,
+					'id' => $user->id_user,
+				);
+			}
+			
+			
+			echo CJSON::encode($result);
+			Yii::app()->end();
+		}
+	}
+	
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -152,6 +182,7 @@ class SiteController extends Controller
 		$auth->createOperation('readContact','просмотр контакта', $bizRule);
 		$auth->createOperation('updateContact','редактирование контакта',$bizRule);
 		$auth->createTask('deleteContact','удаление контакта',$bizRule);
+
 		 
 		//создаем роль user и добавляем операции для неё
 		$user = $auth->createRole('user');
@@ -162,7 +193,8 @@ class SiteController extends Controller
 		$user->addChild('updateContact');
 		$user->addChild('deleteContact');
 		$user->addChild('updateOwnData');
-	 
+		
+		
 		$auth->assign('root', 1);
 	 
 		//сохраняем роли и операции

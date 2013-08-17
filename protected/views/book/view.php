@@ -22,10 +22,8 @@ $this->breadcrumbs=array(
 	echo "<h5>".$book->getKeywordsString()."</h5>";
 	echo "<h5>".$book->description."</h5>";
 	
-	if ($isOrdered) {
-		echo "<h2>Вы уже оставили заявку на эту книгу</h2>";
-	} else {
-		echo CHtml::link('Оставить заявку', array('query/request', 'id'=>$book->id_book));
-	}
+	$this->widget('application.components.BookStatusWidget', array('book'=>$book));
+	
+	$this->widget('application.components.RecommendationWidget', array('bookId'=>$book->id_book));
 ?>
 </p>

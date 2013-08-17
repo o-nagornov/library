@@ -3,7 +3,7 @@
 	switch ($status)
 	{
 		case 'new':
-			echo 'Вы уж оставили заявку. ';
+			echo 'Вы уже оставили заявку. ';
 			echo CHtml::link('Отказаться', array('query/abadon', 'id'=>$bookId));
 			break;
 		case 'given':
@@ -22,7 +22,6 @@
 	{
 		case 'last':
 			echo "Вы последний.";
-			echo CHtml::link('Отказаться', array('query/abadon', 'id'=>$bookId));
 			break;
 		case 'first':
 			echo "Вы первый!";

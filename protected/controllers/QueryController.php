@@ -2,47 +2,36 @@
 
 class QueryController extends Controller
 {
-	public function actionIndex()
+	
+	public function actionIndex($title='', $name='')
 	{
-		$booksRequests = Query::model()->findAll('user_id=:user_id', array(':user_id' => Yii::app()->user->id));
+	    $criteria = new CDbCriteria();
+		$criteria->with = array('user', 'book');
 		
-		$queries = array();
+		$criteria->together = true;
 		
-		foreach ($booksRequests as $bookRequest)
+		$criteria->addSearchCondition('user_id', Yii::app()->user->id, true, 'AND', 'LIKE');
+		
+		if (strlen($title) > 0)
 		{
-			$totalCount = Query::model()->count('book_id=:book_id AND (status=\'new\' OR status=\'given\')', array(':book_id' => $bookRequest->book_id));
-			$beforeMeCount = Query::model()->count('book_id=:book_id AND creation_date < :query_date AND status=\'new\'', array(':book_id' => $bookRequest->book_id, ':query_date' => $bookRequest->creation_date));
-			$afterMeCount = Query::model()->count('book_id=:book_id AND creation_date > :query_date', array(':book_id' => $bookRequest->book_id, ':query_date' => $bookRequest->creation_date));
-			
-			$status = null;
-			
-			
-			if ($bookRequest->status == 'new') {
-				if ($beforeMeCount + $afterMeCount + 1 == $totalCount) {
-					$status = "Могу забрать!";
-				} else {
-					$query = Query::model()->find('book_id=:book_id AND status=\'given\' AND creation_date < :query_date', array(':book_id' => $bookRequest->book_id, ':query_date' => $bookRequest->creation_date));
-					$status = "Носитель книги: ".$query->user->name." ".$query->user->surname;
-				}
-			} else if ($bookRequest->status == 'given') {
-				$status = "Книга у меня";
-			} else if ($bookRequest->status == 'canseled') {
-				$status = "Обнулена: ".$bookRequest->comment;
-			}
-				
-				
-			
-			$queries[] = array ('totalCount' => $totalCount,
-								'beforeMeCount' => $beforeMeCount,
-								'afterMeCount' => $afterMeCount,
-								'status' => $status,
-								'query' => $bookRequest,
-								);
+			$criteria->addSearchCondition('title', $title, true, 'AND', 'LIKE');
+		}
+		if (strlen($name) > 0)
+		{
+			$criteria->addSearchCondition("CONCAT_WS(' ', name, surname, parentname)", $name, true, 'AND', 'LIKE');
 		}
 		
-		$this->render('index', array('queries' => $queries));
+		$dataProvider = new CActiveDataProvider('Query', array('criteria' => $criteria));
+	    $this->render('index', array(
+									 'dataProvider' => $dataProvider,
+									 ));
 	}
-
+	
+	public function actionBooks()
+	{
+		$this->render('booksList');
+	}
+	
 	public function actionAbadon($id)
 	{
 		$book = Book::model()->findByPk($id);
