@@ -1637,3 +1637,355 @@ REQUEST_URI=/library/index.php?r=book
 in /var/www/library/protected/components/BookStatusWidget.php (35)
 in /var/www/library/protected/views/book/_view.php (37)
 in /var/www/library/protected/views/book/index.php (25)
+2013/08/17 17:09:07 [error] [php] Undefined variable: model (/var/www/library/protected/views/book/index.php:19)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(869): BookController->renderFile()
+#1 /var/www/library/yii/framework/web/CController.php(782): BookController->renderPartial()
+#2 /var/www/library/protected/controllers/BookController.php(13): BookController->render()
+#3 unknown(0): BookController->actionIndex()
+#4 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/library/yii/framework/web/CController.php(286): BookController->runAction()
+#8 /var/www/library/yii/framework/web/CController.php(265): BookController->runActionWithFilters()
+#9 /var/www/library/yii/framework/web/CWebApplication.php(282): BookController->run()
+#10 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=book
+in /var/www/library/protected/views/book/index.php (19)
+in /var/www/library/protected/controllers/BookController.php (13)
+in /var/www/library/index.php (13)
+2013/08/17 17:09:57 [error] [exception.CException] exception 'CException' with message 'Property "CListView.filter" is not defined.' in /var/www/library/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/library/yii/framework/web/CWidgetFactory.php(161): CComponent->__set('filter', Object(Book))
+#1 /var/www/library/yii/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(BookController), 'zii.widgets.CLi...', Array)
+#2 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#3 /var/www/library/protected/views/book/index.php(26): CBaseController->widget('zii.widgets.CLi...', Array)
+#4 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#5 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#6 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#7 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/library/protected/controllers/BookController.php(19): CController->render('index', Array)
+#9 [internal function]: BookController->actionIndex('')
+#10 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#11 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#12 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#17 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/library/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/library/index.php?r=book
+HTTP_REFERER=http://localhost/library/index.php?r=query
+---
+2013/08/17 17:12:00 [error] [exception.CException] exception 'CException' with message 'Property "CListView.filter" is not defined.' in /var/www/library/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/library/yii/framework/web/CWidgetFactory.php(161): CComponent->__set('filter', Object(Book))
+#1 /var/www/library/yii/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(BookController), 'zii.widgets.CLi...', Array)
+#2 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#3 /var/www/library/protected/views/book/index.php(26): CBaseController->widget('zii.widgets.CLi...', Array)
+#4 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#5 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#6 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#7 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/library/protected/controllers/BookController.php(19): CController->render('index', Array)
+#9 [internal function]: BookController->actionIndex('')
+#10 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#11 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#12 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#17 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/library/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/library/index.php?r=book
+HTTP_REFERER=http://localhost/library/index.php?r=query
+---
+2013/08/17 17:52:35 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+HTTP_REFERER=http://localhost/library/index.php?r=query
+---
+2013/08/17 17:52:37 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+HTTP_REFERER=http://localhost/library/index.php?r=query
+---
+2013/08/17 17:52:43 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:14 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:15 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:16 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:23 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:24 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:25 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:53:47 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "author" is not defined in active record class "Book".' in /var/www/library/yii/framework/db/ar/CActiveFinder.php:226
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'author')
+#1 /var/www/library/yii/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 /var/www/library/yii/framework/db/ar/CActiveRecord.php(909): CActiveFinder->__construct(Object(Book), Array)
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1604): CActiveRecord->getActiveFinder(Array)
+#4 /var/www/library/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/library/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#6 /var/www/library/yii/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#7 /var/www/library/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#8 /var/www/library/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#9 /var/www/library/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#10 /var/www/library/yii/framework/web/CBaseController.php(147): CListView->init()
+#11 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#12 /var/www/library/protected/views/book/index.php(34): CBaseController->widget('zii.widgets.CLi...', Array)
+#13 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#14 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#15 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#16 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#17 /var/www/library/protected/controllers/BookController.php(41): CController->render('index', Array)
+#18 [internal function]: BookController->actionIndex('', '', '', '', '', '')
+#19 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#20 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#21 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#23 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#25 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#26 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/library/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:54:14 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "author" is not defined in active record class "Book".' in /var/www/library/yii/framework/db/ar/CActiveFinder.php:226
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'author')
+#1 /var/www/library/yii/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 /var/www/library/yii/framework/db/ar/CActiveRecord.php(909): CActiveFinder->__construct(Object(Book), Array)
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1604): CActiveRecord->getActiveFinder(Array)
+#4 /var/www/library/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/library/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#6 /var/www/library/yii/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#7 /var/www/library/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#8 /var/www/library/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#9 /var/www/library/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#10 /var/www/library/yii/framework/web/CBaseController.php(147): CListView->init()
+#11 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#12 /var/www/library/protected/views/book/index.php(34): CBaseController->widget('zii.widgets.CLi...', Array)
+#13 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#14 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#15 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#16 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#17 /var/www/library/protected/controllers/BookController.php(41): CController->render('index', Array)
+#18 [internal function]: BookController->actionIndex('', '', '', '', '', '')
+#19 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#20 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#21 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#23 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#25 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#26 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/library/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 17:54:24 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "type" is not defined in active record class "Book".' in /var/www/library/yii/framework/db/ar/CActiveFinder.php:226
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'type')
+#1 /var/www/library/yii/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 /var/www/library/yii/framework/db/ar/CActiveRecord.php(909): CActiveFinder->__construct(Object(Book), Array)
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1604): CActiveRecord->getActiveFinder(Array)
+#4 /var/www/library/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/library/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#6 /var/www/library/yii/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#7 /var/www/library/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#8 /var/www/library/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#9 /var/www/library/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#10 /var/www/library/yii/framework/web/CBaseController.php(147): CListView->init()
+#11 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#12 /var/www/library/protected/views/book/index.php(34): CBaseController->widget('zii.widgets.CLi...', Array)
+#13 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#14 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#15 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#16 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#17 /var/www/library/protected/controllers/BookController.php(41): CController->render('index', Array)
+#18 [internal function]: BookController->actionIndex('', '', '', '', '', '')
+#19 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#20 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#21 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#23 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#25 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#26 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/library/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/library/index.php?r=book
+---
+2013/08/17 18:00:21 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'author' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id_book`) FROM `tbl_book` `t`  LEFT OUTER JOIN `tbl_book_has_author` `authors_authors` ON (`t`.`id_book`=`authors_authors`.`book_id`) LEFT OUTER JOIN `tbl_author` `authors` ON (`authors`.`id_author`=`authors_authors`.`author_id`)  LEFT OUTER JOIN `tbl_book_has_type` `types_types` ON (`t`.`id_book`=`types_types`.`book_id`) LEFT OUTER JOIN `tbl_type` `types` ON (`types`.`id_type`=`types_types`.`type_id`)  LEFT OUTER JOIN `tbl_book_has_keyword` `keywords_keywords` ON (`t`.`id_book`=`keywords_keywords`.`book_id`) LEFT OUTER JOIN `tbl_keyword` `keywords` ON (`keywords`.`id_keyword`=`keywords_keywords`.`keyword_id`)  WHERE ((title LIKE :ycp0) AND (author LIKE :ycp1)).
+in /var/www/library/protected/views/book/index.php (34)
+in /var/www/library/protected/controllers/BookController.php (41)
+in /var/www/library/index.php (13)
+2013/08/17 18:00:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'author' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id_book`) FROM `tbl_book` `t`  LEFT OUTER JOIN `tbl_book_has_author` `authors_authors` ON (`t`.`id_book`=`authors_authors`.`book_id`) LEFT OUTER JOIN `tbl_author` `authors` ON (`authors`.`id_author`=`authors_authors`.`author_id`)  LEFT OUTER JOIN `tbl_book_has_type` `types_types` ON (`t`.`id_book`=`types_types`.`book_id`) LEFT OUTER JOIN `tbl_type` `types` ON (`types`.`id_type`=`types_types`.`type_id`)  LEFT OUTER JOIN `tbl_book_has_keyword` `keywords_keywords` ON (`t`.`id_book`=`keywords_keywords`.`book_id`) LEFT OUTER JOIN `tbl_keyword` `keywords` ON (`keywords`.`id_keyword`=`keywords_keywords`.`keyword_id`)  WHERE ((title LIKE :ycp0) AND (author LIKE :ycp1))' in /var/www/library/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/library/yii/framework/db/CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/library/yii/framework/db/ar/CActiveFinder.php(759): CDbCommand->queryScalar()
+#2 /var/www/library/yii/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1605): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/library/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/library/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#6 /var/www/library/yii/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#7 /var/www/library/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#8 /var/www/library/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#9 /var/www/library/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#10 /var/www/library/yii/framework/web/CBaseController.php(147): CListView->init()
+#11 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#12 /var/www/library/protected/views/book/index.php(34): CBaseController->widget('zii.widgets.CLi...', Array)
+#13 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#14 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#15 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#16 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#17 /var/www/library/protected/controllers/BookController.php(41): CController->render('index', Array)
+#18 [internal function]: BookController->actionIndex('????', '??', '', '', '', '')
+#19 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#20 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#21 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#23 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#25 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book/index')
+#26 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/library/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/library/index.php?ajax=ajaxListView&authors=%D0%B8&description=&keywords=&r=book%2Findex&title=%D0%BF%D0%BE&type=&year=
+HTTP_REFERER=http://localhost/library/index.php?r=book
+---
+2013/08/17 18:14:55 [error] [php] Missing argument 2 for CHtml::listData(), called in /var/www/library/protected/views/book/index.php on line 17 and defined (/var/www/library/yii/framework/web/helpers/CHtml.php:2073)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CBaseController.php(95): BookController->renderInternal()
+#1 /var/www/library/yii/framework/web/CController.php(869): BookController->renderFile()
+#2 /var/www/library/yii/framework/web/CController.php(782): BookController->renderPartial()
+#3 /var/www/library/protected/controllers/BookController.php(41): BookController->render()
+#4 unknown(0): BookController->actionIndex()
+#5 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#6 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /var/www/library/yii/framework/web/CController.php(286): BookController->runAction()
+#9 /var/www/library/yii/framework/web/CController.php(265): BookController->runActionWithFilters()
+#10 /var/www/library/yii/framework/web/CWebApplication.php(282): BookController->run()
+#11 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=book
+in /var/www/library/protected/views/book/index.php (17)
+in /var/www/library/protected/controllers/BookController.php (41)
+in /var/www/library/index.php (13)
+2013/08/17 18:35:09 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in /var/www/library/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('contact', Array, true)
+#1 /var/www/library/protected/controllers/SiteController.php(72): CController->render('contact', Array)
+#2 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionContact()
+#3 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('contact')
+#7 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/contact')
+#8 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/library/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/library/index.php?r=site/contact
+HTTP_REFERER=http://localhost/library/index.php?r=site/page&view=about
+---

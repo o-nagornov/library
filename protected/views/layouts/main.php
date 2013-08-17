@@ -28,9 +28,8 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'На главную', 'url'=>array('/site/index')),
+				array('label'=>'Помощь', 'url'=>array('/site/page', 'view'=>'help')),
 				array('label'=>'Мои заявки', 'url'=>array('/query'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Поиск книг', 'url'=>array('/book'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),

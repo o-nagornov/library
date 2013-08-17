@@ -3,29 +3,44 @@
 class BookController extends Controller
 {
 
-	public function actionIndex( $string = '' )
+	public function actionIndex($title='', $authors='', $keywords='', $type='', $description='', $year='')
 	{
 	    $criteria = new CDbCriteria();
-	    if( strlen( $string ) > 0 ) {
-	        $criteria->addSearchCondition('title', $string, true, 'OR' );
-	    }
-	    $dataProvider = new CActiveDataProvider('Book', array( 'criteria' => $criteria, ) );
-	    $this->render('index', array( 'dataProvider' => $dataProvider ) );
-}
-	
-
-	public function actionList()
-	{
-		$model=new Book('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Book'])) {
-			$model->setAttributes($_GET['Book'], false);
-			$model->id_author = isset($_GET['Book']['id_author']) ? $_GET['Book']['id_author'] : '';
-
+		$criteria->with = array('authors', 'types', 'keywords');
+		
+		$criteria->together = true;
+		
+		if (strlen($title) > 0)
+		{
+			$criteria->addSearchCondition('title', $title, true, 'AND', 'LIKE');
 		}
-		$this->render('list',array('model'=>$model));
-	}
+		if (strlen($authors) > 0)
+		{
+			$criteria->addSearchCondition('name', $authors, true, 'AND', 'LIKE');
+		}
+		if (strlen($keywords) > 0)
+		{
+			$criteria->addSearchCondition('word', $keywords, true, 'AND', 'LIKE');
+		}
+		if (strlen($type) > 0)
+		{
+			$criteria->addSearchCondition('id_type', $type, true, 'AND', 'LIKE');
+		}
+		if (strlen($description) > 0)
+		{
+			$criteria->addSearchCondition('description', $description, true, 'AND', 'LIKE');
+		}
+		if (strlen($year) > 0)
+		{
+			$criteria->addSearchCondition('year', $year, true, 'AND', 'LIKE');
+		}
 
+	    $dataProvider = new CActiveDataProvider('Book', array('criteria' => $criteria));
+	    $this->render('index', array(
+									 'dataProvider' => $dataProvider,
+									 ));
+	}
+	
 	public function actionView($id)
 	{
 		$book = Book::model()->findByPk($id);
