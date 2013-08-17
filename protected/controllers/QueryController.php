@@ -45,7 +45,8 @@ class QueryController extends Controller
 
 	public function actionAbadon($id)
 	{
-		$query = Query::model()->findByPk($id);
+		$book = Book::model()->findByPk($id);
+		$query = Query::model()->find("book_id=:book_id AND user_id=:user_id", array(':book_id'=>$book->id_book, ':user_id'=>Yii::app()->user->id));
 		$query->delete();
 		/*$query->status = 'abadoned';
 		$quert->save();*/
