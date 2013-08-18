@@ -55,6 +55,12 @@
 		<?php echo $form->error($model,'year'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'image_link'); ?>
+		<?php echo $form->textField($model,'image_link',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'image_link'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

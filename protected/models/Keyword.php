@@ -8,7 +8,7 @@
  * @property string $word
  *
  * The followings are the available model relations:
- * @property Book[] $tblBooks
+ * @property Book[] $books
  */
 class Keyword extends CActiveRecord
 {
@@ -44,7 +44,7 @@ class Keyword extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblBooks' => array(self::MANY_MANY, 'Book', 'tbl_book_has_keyword(keyword_id, book_id)'),
+			'books' => array(self::MANY_MANY, 'Book', 'tbl_book_has_keyword(keyword_id, book_id)'),
 		);
 	}
 
@@ -95,12 +95,4 @@ class Keyword extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	
-	public function getForFilter(){
-        return CHtml::listData(
-            self::model()->findAll(array(
-                'select' => array('id_keyword', 'name')
-            )), 'id', 'name'
-        );
-    }
 }

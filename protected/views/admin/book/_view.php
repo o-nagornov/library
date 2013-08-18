@@ -33,5 +33,11 @@
 	<?php echo CHtml::encode($data->year); ?>
 	<br />
 
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('image_link')); ?>:</b>
+	<?php echo CHtml::encode($data->image_link); ?>
+	<br />
+
+	*/ ?>
 
 </div>

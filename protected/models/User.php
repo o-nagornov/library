@@ -15,8 +15,8 @@
  *
  * The followings are the available model relations:
  * @property Query[] $queries
- * @property Recommendation[] $recommendations
- * @property Recommendation[] $recommendations1
+ * @property Recommendation[] $givenRecommendations
+ * @property Recommendation[] $recivedRecommendations
  */
 class User extends CActiveRecord
 {
@@ -53,8 +53,8 @@ class User extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'queries' => array(self::HAS_MANY, 'Query', 'user_id'),
-			'recommendations' => array(self::HAS_MANY, 'Recommendation', 'target_user_id'),
-			'recommendations1' => array(self::HAS_MANY, 'Recommendation', 'user_id'),
+			'givenRecommendations' => array(self::HAS_MANY, 'Recommendation', 'target_user_id'),
+			'recivedRecommendations' => array(self::HAS_MANY, 'Recommendation', 'user_id'),
 		);
 	}
 

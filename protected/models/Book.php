@@ -11,6 +11,7 @@
  * @property integer $total_count
  * @property string $file_link
  * @property integer $year
+ * @property string $image_link
  *
  * The followings are the available model relations:
  * @property Author[] $authors
@@ -21,8 +22,6 @@
  */
 class Book extends CActiveRecord
 {
-	public $id_author = '';
-	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -40,11 +39,11 @@ class Book extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('current_count, total_count, year', 'numerical', 'integerOnly'=>true),
-			array('title, file_link', 'length', 'max'=>45),
+			array('title, file_link, image_link', 'length', 'max'=>45),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_book, title, description, current_count, total_count, file_link, year', 'safe', 'on'=>'search'),
+			array('id_book, title, description, current_count, total_count, file_link, year, image_link', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +76,7 @@ class Book extends CActiveRecord
 			'total_count' => 'Total Count',
 			'file_link' => 'File Link',
 			'year' => 'Year',
+			'image_link' => 'Image Link',
 		);
 	}
 
@@ -95,21 +95,8 @@ class Book extends CActiveRecord
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
-		
-		$criteria=new CDbCriteria;
-		
-		$criteria->with = array(
-            'authors' => array(
-                'select' => array('id_author', 'name'),
-            ),
-        );
-		$criteria->together = true;
 
-		
-        if(isset($this->id_author) && !empty($this->id_author)){
-            $criteria->compare('authors.id_author', '='.$this->id_author, true);
-        }
-	
+		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_book',$this->id_book);
 		$criteria->compare('title',$this->title,true);
@@ -118,6 +105,7 @@ class Book extends CActiveRecord
 		$criteria->compare('total_count',$this->total_count);
 		$criteria->compare('file_link',$this->file_link,true);
 		$criteria->compare('year',$this->year);
+		$criteria->compare('image_link',$this->image_link,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -133,40 +121,5 @@ class Book extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	public function getTypesString()
-	{
-		$result = "";
-		foreach ($this->types as $type)
-		{
-			$result .= $type->type.", ";
-		}
-		
-		$result = substr($result, 0, strlen($result) - 2);
-		return $result;
-	}
-	
-	public function getAuthorsString()
-	{
-		$result = "";
-		foreach ($this->authors as $author)
-		{
-			$result .= $author->name.", ";
-		}
-		
-		$result = substr($result, 0, strlen($result) - 2);
-		return $result;
-	}
-	
-	public function getKeywordsString()
-	{
-		$result = "";
-		foreach ($this->keywords as $keyword)
-		{
-			$result .= $keyword->word.", ";
-		}
-		$result = substr($result, 0, strlen($result) - 2);
-		return $result;
 	}
 }

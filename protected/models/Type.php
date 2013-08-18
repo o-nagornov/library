@@ -8,7 +8,7 @@
  * @property string $type
  *
  * The followings are the available model relations:
- * @property Book[] $tblBooks
+ * @property Book[] $books
  */
 class Type extends CActiveRecord
 {
@@ -43,7 +43,7 @@ class Type extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblBooks' => array(self::MANY_MANY, 'Book', 'tbl_book_has_type(type_id, book_id)'),
+			'books' => array(self::MANY_MANY, 'Book', 'tbl_book_has_type(type_id, book_id)'),
 		);
 	}
 
@@ -94,12 +94,4 @@ class Type extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	
-	public function getForFilter(){
-        return CHtml::listData(
-            self::model()->findAll(array(
-                'select' => array('id_type', 'name')
-            )), 'id', 'name'
-        );
-    }
 }

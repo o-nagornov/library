@@ -28,5 +28,6 @@ $this->menu=array(
 		'total_count',
 		'file_link',
 		'year',
+		'image_link',
 	),
 )); ?>

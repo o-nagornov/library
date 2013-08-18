@@ -17,8 +17,9 @@ CREATE  TABLE IF NOT EXISTS `library`.`tbl_book` (
   `description` TEXT NULL ,
   `current_count` INT NULL ,
   `total_count` INT NULL ,
-  `file_link` VARCHAR(45) NULL ,
+  `file_link` VARCHAR(45) NULL DEFAULT 'NONE' ,
   `year` INT NULL ,
+  `image_link` VARCHAR(45) NULL DEFAULT 'NONE' ,
   PRIMARY KEY (`id_book`) ,
   UNIQUE INDEX `idBook_UNIQUE` (`id_book` ASC) )
 ENGINE = InnoDB;
