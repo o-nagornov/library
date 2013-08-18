@@ -3531,3 +3531,381 @@ REQUEST_URI=/library/index.php
 in /var/www/library/protected/components/BookStatusWidget.php (35)
 in /var/www/library/protected/components/views/givenRequests_view.php (17)
 in /var/www/library/protected/components/views/myBooksWidget.php (15)
+2013/08/18 15:06:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'library.book' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `book`.
+in /var/www/library/index.php (13)
+2013/08/18 15:08:15 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/admin/BookController.php (96)
+in /var/www/library/index.php (13)
+2013/08/18 15:08:15 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/admin/BookController.php (96)
+in /var/www/library/index.php (13)
+2013/08/18 15:09:14 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/admin/BookController.php (96)
+in /var/www/library/index.php (13)
+2013/08/18 15:09:14 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/admin/BookController.php (96)
+in /var/www/library/index.php (13)
+2013/08/18 16:39:37 [error] [exception.CException] exception 'CException' with message 'Book and its behaviors do not have a method or closure named "getAuthorsString".' in /var/www/library/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getAuthorsStrin...', Array)
+#1 /var/www/library/protected/views/book/view.php(23): CActiveRecord->__call('getAuthorsStrin...', Array)
+#2 /var/www/library/protected/views/book/view.php(23): Book->getAuthorsString()
+#3 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#4 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#5 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#6 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#7 /var/www/library/protected/controllers/BookController.php(53): CController->render('view', Array)
+#8 [internal function]: BookController->actionView('1')
+#9 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#10 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#11 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#13 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#15 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book/view')
+#16 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/library/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/library/index.php?r=book/view&id=1
+HTTP_REFERER=http://localhost/library/index.php?r=book
+---
+2013/08/18 16:43:56 [error] [php] Undefined variable: result (/var/www/library/protected/models/Book.php:177)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CBaseController.php(95): BookController->renderInternal()
+#1 /var/www/library/yii/framework/web/CController.php(869): BookController->renderFile()
+#2 /var/www/library/yii/framework/web/CController.php(782): BookController->renderPartial()
+#3 /var/www/library/protected/controllers/BookController.php(53): BookController->render()
+#4 unknown(0): BookController->actionView()
+#5 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#6 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /var/www/library/yii/framework/web/CController.php(286): BookController->runAction()
+#9 /var/www/library/yii/framework/web/CController.php(265): BookController->runActionWithFilters()
+#10 /var/www/library/yii/framework/web/CWebApplication.php(282): BookController->run()
+#11 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=book/view&id=1
+in /var/www/library/protected/models/Book.php (177)
+in /var/www/library/protected/views/book/view.php (23)
+in /var/www/library/protected/controllers/BookController.php (53)
+2013/08/18 16:51:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "library/assets/254d7249/ТЗ_система учета книг.pdf".' in /var/www/library/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('library/assets/...')
+#1 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/library/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/library/index.php?r=library/assets/254d7249/%D0%A2%D0%97_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D1%83%D1%87%D0%B5%D1%82%D0%B0%20%D0%BA%D0%BD%D0%B8%D0%B3.pdf
+HTTP_REFERER=http://localhost/library/index.php?r=site/index
+---
+2013/08/18 16:59:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /var/www/library/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(270): CController->missingAction('view')
+#1 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/library/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/library/index.php?r=site/view&id=1
+HTTP_REFERER=http://localhost/library/index.php?r=site/index
+---
+2013/08/18 16:59:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /var/www/library/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(270): CController->missingAction('view')
+#1 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('query/view')
+#3 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/library/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/library/index.php?r=query/view&id=2
+HTTP_REFERER=http://localhost/library/index.php?r=query
+---
+2013/08/18 18:03:17 [error] [php] Undefined variable: model (/var/www/library/protected/views/registration/index.php:27)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(869): RegistrationController->renderFile()
+#1 /var/www/library/yii/framework/web/CController.php(782): RegistrationController->renderPartial()
+#2 /var/www/library/protected/controllers/RegistrationController.php(63): RegistrationController->render()
+#3 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#4 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/library/yii/framework/web/CController.php(286): RegistrationController->runAction()
+#6 /var/www/library/yii/framework/web/CController.php(265): RegistrationController->runActionWithFilters()
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): RegistrationController->run()
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=registration
+in /var/www/library/protected/views/registration/index.php (27)
+in /var/www/library/protected/controllers/RegistrationController.php (63)
+in /var/www/library/index.php (13)
+2013/08/18 18:16:40 [error] [php] Undefined variable: pass (/var/www/library/protected/controllers/RegistrationController.php:44)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /var/www/library/yii/framework/web/CController.php(286): RegistrationController->runAction()
+#2 /var/www/library/yii/framework/web/CController.php(265): RegistrationController->runActionWithFilters()
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): RegistrationController->run()
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=registration
+in /var/www/library/protected/controllers/RegistrationController.php (44)
+in /var/www/library/protected/controllers/RegistrationController.php (63)
+in /var/www/library/index.php (13)
+2013/08/18 18:17:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (48)
+in /var/www/library/protected/controllers/RegistrationController.php (63)
+in /var/www/library/index.php (13)
+2013/08/18 18:17:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /var/www/library/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/library/protected/controllers/RegistrationController.php(48): CActiveRecord->save()
+#3 /var/www/library/protected/controllers/RegistrationController.php(63): RegistrationController->actionRegister()
+#4 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#5 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration')
+#10 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/library/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/library/index.php?r=registration
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:20:11 [error] [exception.CException] exception 'CException' with message 'Property "User.validate" is not defined.' in /var/www/library/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('validate')
+#1 /var/www/library/protected/controllers/RegistrationController.php(48): CActiveRecord->__get('validate')
+#2 /var/www/library/protected/controllers/RegistrationController.php(67): RegistrationController->actionRegister()
+#3 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#4 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php?r=registration
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:20:19 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (51)
+in /var/www/library/protected/controllers/RegistrationController.php (67)
+in /var/www/library/index.php (13)
+2013/08/18 18:20:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /var/www/library/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/library/protected/controllers/RegistrationController.php(51): CActiveRecord->save()
+#3 /var/www/library/protected/controllers/RegistrationController.php(67): RegistrationController->actionRegister()
+#4 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#5 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration')
+#10 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/library/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/library/index.php?r=registration
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:22:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:23:30 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:23:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:24:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:24:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:25:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:26:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:26:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:26:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:26:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:26:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:27:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:27:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:27:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /var/www/library/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/library/protected/controllers/RegistrationController.php(50): CActiveRecord->save()
+#3 /var/www/library/protected/controllers/RegistrationController.php(70): RegistrationController->actionRegister()
+#4 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#5 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration')
+#10 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/library/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/library/index.php?r=registration
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:29:56 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('message')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration/me...')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=registration/message&0%5Bemail%5D=nagornov.oi%40gmail.com
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:30:37 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/library/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('message')
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration/me...')
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/library/index.php?r=registration/message&0%5Bemail%5D=nagornov.oi%40gmail.com
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:30:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (68)
+in /var/www/library/index.php (13)
+2013/08/18 18:36:17 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.mailer.EMailer" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/library/yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/library/yii/framework/YiiBase.php(196): YiiBase::import('application.ext...', true)
+#1 /var/www/library/protected/controllers/RegistrationController.php(112): YiiBase::createComponent('application.ext...')
+#2 /var/www/library/protected/controllers/RegistrationController.php(52): RegistrationController->sendApprove(Object(User))
+#3 /var/www/library/protected/controllers/RegistrationController.php(70): RegistrationController->actionRegister()
+#4 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#5 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration')
+#10 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/library/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/library/index.php?r=registration
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:37:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:38:07 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.mailer.EMailer" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/library/yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/library/yii/framework/YiiBase.php(196): YiiBase::import('application.ext...', true)
+#1 /var/www/library/protected/controllers/RegistrationController.php(112): YiiBase::createComponent('application.ext...')
+#2 /var/www/library/protected/controllers/RegistrationController.php(52): RegistrationController->sendApprove(Object(User))
+#3 /var/www/library/protected/controllers/RegistrationController.php(70): RegistrationController->actionRegister()
+#4 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#5 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/library/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('registration')
+#10 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/library/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/library/index.php?r=registration
+HTTP_REFERER=http://localhost/library/index.php?r=registration
+---
+2013/08/18 18:38:50 [error] [php] Creating default object from empty value (/var/www/library/protected/controllers/RegistrationController.php:115)
+Stack trace:
+#0 /var/www/library/yii/framework/web/actions/CInlineAction.php(49): RegistrationController->actionIndex()
+#1 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/library/yii/framework/web/CController.php(286): RegistrationController->runAction()
+#3 /var/www/library/yii/framework/web/CController.php(265): RegistrationController->runActionWithFilters()
+#4 /var/www/library/yii/framework/web/CWebApplication.php(282): RegistrationController->run()
+#5 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=registration
+in /var/www/library/protected/controllers/RegistrationController.php (115)
+in /var/www/library/protected/controllers/RegistrationController.php (52)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+2013/08/18 18:46:56 [error] [php] Undefined variable: status (/var/www/library/protected/views/registration/approve.php:17)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(869): RegistrationController->renderFile()
+#1 /var/www/library/yii/framework/web/CController.php(782): RegistrationController->renderPartial()
+#2 /var/www/library/protected/controllers/RegistrationController.php(31): RegistrationController->render()
+#3 unknown(0): RegistrationController->actionApprove()
+#4 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/library/yii/framework/web/CController.php(286): RegistrationController->runAction()
+#8 /var/www/library/yii/framework/web/CController.php(265): RegistrationController->runActionWithFilters()
+#9 /var/www/library/yii/framework/web/CWebApplication.php(282): RegistrationController->run()
+#10 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=registration/approve&hash=150655ab953cf560a51684c1dab8384b&email=nagornov.oi@gmail.com
+in /var/www/library/protected/views/registration/approve.php (17)
+in /var/www/library/protected/controllers/RegistrationController.php (31)
+in /var/www/library/index.php (13)
+2013/08/18 18:47:14 [error] [php] Undefined variable: result (/var/www/library/protected/controllers/RegistrationController.php:31)
+Stack trace:
+#0 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/library/yii/framework/web/CController.php(286): RegistrationController->runAction()
+#3 /var/www/library/yii/framework/web/CController.php(265): RegistrationController->runActionWithFilters()
+#4 /var/www/library/yii/framework/web/CWebApplication.php(282): RegistrationController->run()
+#5 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php?r=registration/approve&hash=150655ab953cf560a51684c1dab8384b&email=nagornov.oi@gmail.com
+in /var/www/library/protected/controllers/RegistrationController.php (31)
+in /var/www/library/index.php (13)
+2013/08/18 18:48:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:50:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)
+2013/08/18 18:50:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nagornov.oi@gmail.com' for key 'email_UNIQUE'. The SQL statement executed was: INSERT INTO `tbl_user` (`name`, `surname`, `parentname`, `email`, `pass`, `check_hash`, `role`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (70)
+in /var/www/library/index.php (13)

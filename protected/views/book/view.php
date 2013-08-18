@@ -12,8 +12,13 @@ $this->breadcrumbs=array(
 <p>
 <?php
 
+	if ($book->image_link != '')
+	{
+		echo CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$book->image_link);
+	} else {
+		echo CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.'default.jpg');
+	}
 	
-
 	echo "<h3>".$book->title.", ".$book->year."</h3><br>";
 	echo "<h5>".$book->getAuthorsString()."</h5>";
 	echo "<h5>".$book->getTypesString()."</h5>";
@@ -25,5 +30,7 @@ $this->breadcrumbs=array(
 	$this->widget('application.components.BookStatusWidget', array('book'=>$book));
 	
 	$this->widget('application.components.RecommendationWidget', array('bookId'=>$book->id_book));
+	
+	$this->widget('application.components.BookStatisticWidget', array('book'=>$book));
 ?>
 </p>

@@ -6,14 +6,13 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'book-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
+<?php $form=$this->beginWidget('CActiveForm',
+		array(
+			'htmlOptions' => array('enctype' => 'multipart/form-data'),
+			'id'=>'book-form',
+			'enableAjaxValidation'=>false,
+		));
+?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
@@ -44,8 +43,11 @@
 	</div>
 
 	<div class="row">
+		<?php if($model->file_link): ?>
+            <p><?php echo CHtml::encode($model->file_link); ?></p>
+        <?php endif; ?>
 		<?php echo $form->labelEx($model,'file_link'); ?>
-		<?php echo $form->textField($model,'file_link',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->fileField($model,'file_link',array('size'=>45,'maxlength'=>145)); ?>
 		<?php echo $form->error($model,'file_link'); ?>
 	</div>
 
@@ -56,8 +58,11 @@
 	</div>
 
 	<div class="row">
+		<?php if($model->image_link): ?>
+            <p><?php echo CHtml::encode($model->image_link); ?></p>
+        <?php endif; ?>
 		<?php echo $form->labelEx($model,'image_link'); ?>
-		<?php echo $form->textField($model,'image_link',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->fileField($model,'image_link',array('size'=>45,'maxlength'=>145)); ?>
 		<?php echo $form->error($model,'image_link'); ?>
 	</div>
 

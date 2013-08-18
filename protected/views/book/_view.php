@@ -4,6 +4,14 @@
 ?>
 
 <div class="view">
+	<?php
+		if ($data->image_link != '')
+		{
+			echo CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$data->image_link);
+		} else {
+			echo CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.'default.jpg');
+		}
+	?>
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_book')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id_book), array('view', 'id'=>$data->id_book)); ?>

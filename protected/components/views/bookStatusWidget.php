@@ -12,22 +12,8 @@
 		case 'request':
 			echo CHtml::link('Оставить заявку', array('query/request', 'id'=>$bookId));
 			break;
-	}
-?>
-</h5>
-
-<h5>
-<?php
-	switch ($queueStatus)
-	{
-		case 'last':
-			echo "Вы последний.";
-			break;
-		case 'first':
-			echo "Вы первый!";
-			break;
-		case 'queue':
-			echo "Вы в очереди, до Вас: $beforeCount";
+		case 'download':
+			echo CHtml::link('Скачать', Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$filelink);
 			break;
 	}
 ?>
@@ -35,17 +21,40 @@
 
 <h5>
 <?php
-	switch ($gettindStatus)
+	if ($status != 'download')
 	{
-		case 'available':
-			echo 'Можно забрать.';
-			break;
-		case 'requestFirst':
-			echo 'Оставьте заявку и забирайте.';
-			break;
-		case 'notAvailable':
-			echo 'Придется подождать.';
-			break;
+		switch ($queueStatus)
+		{
+			case 'last':
+				echo "Вы последний.";
+				break;
+			case 'first':
+				echo "Вы первый!";
+				break;
+			case 'queue':
+				echo "Вы в очереди, до Вас: $beforeCount";
+				break;
+		}
+	}
+?>
+</h5>
+
+<h5>
+<?php
+	if ($status != 'download')
+	{
+		switch ($gettindStatus)
+		{
+			case 'available':
+				echo 'Можно забрать.';
+				break;
+			case 'requestFirst':
+				echo 'Оставьте заявку и забирайте.';
+				break;
+			case 'notAvailable':
+				echo 'Придется подождать.';
+				break;
+		}
 	}
 ?>
 </h5>

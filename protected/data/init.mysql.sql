@@ -27,8 +27,8 @@ INSERT INTO tbl_keyword VALUES (1, 'C++');
 INSERT INTO tbl_keyword VALUES (2, 'микросхема');
 INSERT INTO tbl_keyword VALUES (3, 'Pattern');
 
-INSERT INTO tbl_book VALUES (1, 'Популярные цифровые ИС', 'справочник по микросхемам', 1, 1, 'NONE', 1987, 'NONE');
-INSERT INTO tbl_book VALUES (2, 'Design Patterns', 'справочник по ООП', 1, 2, 'NONE', 1994, 'NONE');
+INSERT INTO tbl_book VALUES (1, 'Популярные цифровые ИС', 'справочник по микросхемам', 1, 1, NULL, 1987, NULL);
+INSERT INTO tbl_book VALUES (2, 'Design Patterns', 'справочник по ООП', 1, 2, NULL, 1994, NULL);
 
 INSERT INTO tbl_book_has_author VALUES (1, 1);
 INSERT INTO tbl_book_has_author VALUES (2, 2);

@@ -67,8 +67,14 @@ class BookStatusWidget extends CWidget {
 		} else {		
 			$gettingStatus = 'notAvailable';
 		}
+		
+		if ($this->book->file_link != '')
+		{
+			$status = "download";
+		}
 	
 		$this->render('bookStatusWidget', array(
+												'filelink'=>$this->book->file_link,
 												'bookId'=>$bookId,
 												'userId'=>$userId,
 												'status'=>$status,

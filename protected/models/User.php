@@ -117,4 +117,20 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	protected function beforeSave()
+	{
+		if (parent::beforeSave())
+		{
+			if($this->pass != '')
+			{
+				$this->pass = md5($this->pass);
+			}
+			else
+			{
+				$this->pass = User::model()->find("email=:email", array(':email' => $this->email))->pass;
+			}
+			return true;
+		}
+	}
 }

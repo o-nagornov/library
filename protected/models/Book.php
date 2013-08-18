@@ -41,6 +41,8 @@ class Book extends CActiveRecord
 			array('current_count, total_count, year', 'numerical', 'integerOnly'=>true),
 			array('title, file_link, image_link', 'length', 'max'=>45),
 			array('description', 'safe'),
+			array('image_link', 'file', 'types' => 'png, jpg, gif', 'allowEmpty'=>true, 'on'=>'insert,update'),
+			array('file_link', 'file', 'types' => 'pdf, txt, fb2', 'allowEmpty'=>true, 'on'=>'insert,update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_book, title, description, current_count, total_count, file_link, year, image_link', 'safe', 'on'=>'search'),
@@ -80,6 +82,49 @@ class Book extends CActiveRecord
 		);
 	}
 
+	protected function beforeSave()
+	{
+        if (!parent::beforeSave()) {
+            return false;
+        }
+		
+        if (($this->scenario=='insert' || $this->scenario=='update') && ($document=CUploadedFile::getInstance($this,'file_link'))) {
+            $this->deleteDocument($this->file_link);
+			
+			$this->file_link = $document;
+            $this->file_link->saveAs(Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$this->file_link);			
+        }
+		
+		if (($this->scenario=='insert' || $this->scenario=='update') && ($document=CUploadedFile::getInstance($this,'image_link'))) {
+           $this->deleteDocument($this->image_link);
+			
+			$this->image_link = $document;
+            $this->image_link->saveAs(Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$this->image_link);			
+        }
+        return true;
+    }
+	
+	protected function beforeDelete()
+	{
+        if (!parent::beforeDelete())
+		{
+            return false;
+        }
+        $this->deleteDocument($this->image_link);
+		$this->deleteDocument($this->file_link);
+        return true;
+    }
+	
+	public function deleteDocument($file)
+	{
+        $documentPath = Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$file;
+        if (is_file($documentPath))
+		{
+            unlink($documentPath);
+		}
+    }	
+	
+	
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -121,5 +166,47 @@ class Book extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	public function getAuthorsString()
+	{
+		$result = "";
+		
+		foreach ($this->authors as $author)
+		{
+			$result .= $author->name.", ";
+		}
+		
+		$result = substr($result, 0, strlen($result) - 2);
+		
+		return $result;
+	}
+	
+	public function getTypesString()
+	{
+		$result = "";
+		
+		foreach ($this->types as $type)
+		{
+			$result .= $type->type.", ";
+		}
+		
+		$result = substr($result, 0, strlen($result) - 2);
+		
+		return $result;
+	}
+	
+	public function getKeywordsString()
+	{
+		$result = "";
+		
+		foreach ($this->keywords as $keyword)
+		{
+			$result .= $keyword->word.", ";
+		}
+		
+		$result = substr($result, 0, strlen($result) - 2);
+		
+		return $result;
 	}
 }

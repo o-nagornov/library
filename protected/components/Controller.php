@@ -22,4 +22,19 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+	private $_assetsBase;
+	
+	public function getAssetsBase()
+    {
+		if ($this->_assetsBase === null)
+		{
+            $this->_assetsBase = Yii::app()->assetManager->publish(
+				Yii::getPathOfAlias('webroot.data'),
+                false,
+                -1,
+                YII_DEBUG
+            );
+        }
+        return $this->_assetsBase;
+    }
 }

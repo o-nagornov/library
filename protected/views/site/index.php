@@ -27,5 +27,7 @@ if (!Yii::app()->user->isGuest) {
 	$this->widget('application.components.MyRequestsWidget');
 	
 	$this->widget('application.components.MyBooksWidget');
+} else {
+	echo CHtml::link('Зарегистрироваться', array('/registration'));
 }
 ?>
