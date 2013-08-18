@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 	
 echo CHtml::beginForm(CHtml::normalizeUrl(array('/query/index')), 'get', array('id'=>'filter-form'))
     ."<br>Название".CHtml::textField('title', (isset($_GET['title'])) ? $_GET['title'] : '', array('id'=>'title'))
-	."<br>У кого книга".CHtml::textField('name', (isset($_GET['name'])) ? $_GET['name'] : '', array('id'=>'name'))
+	//."<br>У кого книга".CHtml::textField('name', (isset($_GET['name'])) ? $_GET['name'] : '', array('id'=>'name'))
     ."<br>".CHtml::submitButton('Search', array('name'=>''))
     .CHtml::endForm();
 

@@ -12,7 +12,7 @@ USE `library` ;
 DROP TABLE IF EXISTS `library`.`tbl_book` ;
 
 CREATE  TABLE IF NOT EXISTS `library`.`tbl_book` (
-  `id_book` INT NOT NULL ,
+  `id_book` INT NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(45) NULL ,
   `description` TEXT NULL ,
   `current_count` INT NULL ,

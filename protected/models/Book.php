@@ -33,6 +33,96 @@ class Book extends CActiveRecord
 	/**
 	 * @return array validation rules for model attributes.
 	 */
+	
+	protected $authorsArray;
+	protected $typesArray;
+	protected $keywordsArray;
+	
+	public function getAuthorsArray()
+	{
+		if ($this->authorsArray == null)
+		{
+			$this->authorsArray = CHtml::listData($this->authors, 'id_author', 'id_author');
+		}
+		
+		return $this->authorsArray;
+	}
+	
+	public function setCategoriesArray($value)
+	{
+		$this->authorsArray = $value;
+	}
+	
+	public function getTypesArray()
+	{
+		if ($this->typesArray == null)
+		{
+			$this->typesArray = CHtml::listData($this->types, 'id_type', 'id_type');
+		}
+		
+		return $this->typesArray;
+	}
+	
+	public function setTypesArray($value)
+	{
+		$this->typesArray = $value;
+	}
+	
+	public function getKeywordsArray()
+	{
+		if ($this->keywordsArray == null)
+		{
+			$this->keywordsArray = CHtml::listData($this->keywords, 'id_keyword', 'id_keyword');
+		}
+		
+		return $this->keywordsArray;
+	}
+	
+	public function setKeywordsArray($value)
+	{
+		$this->keywordsArray = $value;
+	}
+	
+	protected function afterSave()
+	{
+		BookHasAuthor::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+		BookHasType::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+		BookHasKeyword::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+		
+		if (is_array($this->authorsArray))
+		{
+			foreach ($this->authorsArray as $authorId)
+			{
+				$relation = new BookHasAuthor();
+				$relation->author_id = $authorId;
+				$relation->book_id = $this->id_book;
+				$relation->save();
+			}
+		}
+		
+		if (is_array($this->typesArray))
+		{
+			foreach ($this->typesArray as $typeId)
+			{
+				$relation = new BookHasType();
+				$relation->type_id = $typeId;
+				$relation->book_id = $this->id_book;
+				$relation->save();
+			}
+		}
+		
+		if (is_array($this->keywordsArray))
+		{
+			foreach ($this->keywordsArray as $keywordId)
+			{
+				$relation = new BookHasKeyword();
+				$relation->keyword_id = $keywordId;
+				$relation->book_id = $this->id_book;
+				$relation->save();
+			}
+		}
+	}
+	
 	public function rules()
 	{
 		// NOTE: you should only define rules for those attributes that
@@ -46,6 +136,9 @@ class Book extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_book, title, description, current_count, total_count, file_link, year, image_link', 'safe', 'on'=>'search'),
+			array('authorsArray', 'safe'),
+			array('typesArray', 'safe'),
+			array('keywordsArray', 'safe'),
 		);
 	}
 
@@ -92,7 +185,7 @@ class Book extends CActiveRecord
             $this->deleteDocument($this->file_link);
 			
 			$this->file_link = $document;
-            $this->file_link->saveAs(Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$this->file_link);			
+            $this->file_link->saveAs(Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$this->md5(file_link));			
         }
 		
 		if (($this->scenario=='insert' || $this->scenario=='update') && ($document=CUploadedFile::getInstance($this,'image_link'))) {

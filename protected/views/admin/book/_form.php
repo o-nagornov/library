@@ -65,6 +65,18 @@
 		<?php echo $form->fileField($model,'image_link',array('size'=>45,'maxlength'=>145)); ?>
 		<?php echo $form->error($model,'image_link'); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->checkBoxList($model, 'authorsArray', CHtml::listData(Author::model()->findAll(), 'id_author', 'name')); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->checkBoxList($model, 'keywordsArray', CHtml::listData(Keyword::model()->findAll(), 'id_keyword', 'word')); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->checkBoxList($model, 'typesArray', CHtml::listData(Type::model()->findAll(), 'id_type', 'type')); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -7,18 +7,13 @@
 	<?php
 		if ($data->image_link != '')
 		{
-			echo CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$data->image_link);
+			echo CHtml::link(CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$data->image_link), array('/book/view', 'id'=>$data->id_book));
 		} else {
-			echo CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.'default.jpg');
+			echo CHtml::link(CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.'default.jpg'), array('/book/view', 'id'=>$data->id_book));
 		}
 	?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_book')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id_book), array('view', 'id'=>$data->id_book)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::encode($data->title); ?>
+	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id_book)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>

@@ -4,13 +4,19 @@
 ?>
 
 <div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('book_id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->book_id), array('view', 'id'=>$data->book_id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::encode($data->book->title); ?>
+	
+	<?php
+		if ($data->book->image_link != '')
+		{
+			echo CHtml::link(CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$data->book->image_link), array('/book/view', 'id'=>$data->book_id));
+		} else {
+			echo CHtml::link(CHtml::image(Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.'default.jpg'), array('/book/view', 'id'=>$data->book_id));
+		}
+	?>
+	
+	<b>
+		<?php echo CHtml::link(CHtml::encode($data->book->title), array('/book/view', 'id'=>$data->book_id)); ?>
+	</b>
 	<br />
 	
 	<?php
