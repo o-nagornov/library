@@ -22,18 +22,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'book_id_book'); ?>
-		<?php echo $form->textField($model,'book_id_book'); ?>
+		<?php echo $form->label($model,'book_id'); ?>
+		<?php echo $form->textField($model,'book_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'target_id_user'); ?>
-		<?php echo $form->textField($model,'target_id_user'); ?>
+		<?php echo $form->label($model,'target_user_id'); ?>
+		<?php echo $form->textField($model,'target_user_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'user_id_user'); ?>
-		<?php echo $form->textField($model,'user_id_user'); ?>
+		<?php echo $form->label($model,'user_id'); ?>
+		<?php echo $form->textField($model,'user_id'); ?>
 	</div>
 
 	<div class="row buttons">

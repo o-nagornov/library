@@ -13,16 +13,16 @@
 	<?php echo CHtml::encode($data->reason); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('book_id_book')); ?>:</b>
-	<?php echo CHtml::encode($data->book_id_book); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('book_id')); ?>:</b>
+	<?php echo CHtml::encode($data->book_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('target_id_user')); ?>:</b>
-	<?php echo CHtml::encode($data->target_id_user); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('target_user_id')); ?>:</b>
+	<?php echo CHtml::encode($data->target_user_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id_user')); ?>:</b>
-	<?php echo CHtml::encode($data->user_id_user); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user_id); ?>
 	<br />
 
 

@@ -17,12 +17,12 @@
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('book_id_book')); ?>:</b>
-	<?php echo CHtml::encode($data->book_id_book); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('book_id')); ?>:</b>
+	<?php echo CHtml::encode($data->book_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id_user')); ?>:</b>
-	<?php echo CHtml::encode($data->user_id_user); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user_id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>

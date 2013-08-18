@@ -48,8 +48,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id_query',
 		'creation_date',
 		'status',
-		'book_id_book',
-		'user_id_user',
+		'book_id',
+		'user_id',
 		'comment',
 		array(
 			'class'=>'CButtonColumn',

@@ -30,10 +30,13 @@ class BookStatusWidget extends CWidget {
 		if ($status == 'request')
 		{
 			$beforeMyCount = $totalCount;
-		} else {
+		} else if ($status == 'new') {
 			$query = Query::model()->find("book_id=:book_id AND status='new' AND user_id=:user_id", array(':book_id'=>$bookId, ':user_id'=>$userId));
 			$newBeforeMe = Query::model()->count("book_id=:book_id AND status='new' AND id_query < :query_id", array(':book_id'=>$bookId, ':query_id'=>$query->id_query));
 			$beforeMeCount = Query::model()->count("book_id=:book_id AND (status='new' OR status='given') AND id_query < :query_id", array(':book_id'=>$bookId, ':query_id'=>$query->id_query));
+		} else {
+			$beforeMeCount = 0;
+			$newBeforeMe = 0;
 		}
 		
 		$queueStatus = null;
@@ -58,6 +61,9 @@ class BookStatusWidget extends CWidget {
 		} else if ($beforeMeCount < $this->book->current_count && $status == 'request')
 		{
 			$gettingStatus = 'requestFirst';
+		} else if ($status == 'given')
+		{
+			$gettingStatus = 'given';
 		} else {		
 			$gettingStatus = 'notAvailable';
 		}

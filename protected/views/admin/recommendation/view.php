@@ -23,8 +23,8 @@ $this->menu=array(
 	'attributes'=>array(
 		'id_recommendation',
 		'reason',
-		'book_id_book',
-		'target_id_user',
-		'user_id_user',
+		'book_id',
+		'target_user_id',
+		'user_id',
 	),
 )); ?>

@@ -26,21 +26,21 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'book_id_book'); ?>
-		<?php echo $form->textField($model,'book_id_book'); ?>
-		<?php echo $form->error($model,'book_id_book'); ?>
+		<?php echo $form->labelEx($model,'book_id'); ?>
+		<?php echo $form->textField($model,'book_id'); ?>
+		<?php echo $form->error($model,'book_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'target_id_user'); ?>
-		<?php echo $form->textField($model,'target_id_user'); ?>
-		<?php echo $form->error($model,'target_id_user'); ?>
+		<?php echo $form->labelEx($model,'target_user_id'); ?>
+		<?php echo $form->textField($model,'target_user_id'); ?>
+		<?php echo $form->error($model,'target_user_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'user_id_user'); ?>
-		<?php echo $form->textField($model,'user_id_user'); ?>
-		<?php echo $form->error($model,'user_id_user'); ?>
+		<?php echo $form->labelEx($model,'user_id'); ?>
+		<?php echo $form->textField($model,'user_id'); ?>
+		<?php echo $form->error($model,'user_id'); ?>
 	</div>
 
 	<div class="row buttons">
