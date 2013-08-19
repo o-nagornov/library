@@ -17,6 +17,9 @@
  */
 class Query extends CActiveRecord
 {
+	public $user_search = '';
+	public $book_search = '';
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -40,6 +43,8 @@ class Query extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_query, creation_date, status, book_id, user_id, comment', 'safe', 'on'=>'search'),
+			array('user_search', 'safe'),
+			array('book_search', 'safe'),
 		);
 	}
 
@@ -88,16 +93,35 @@ class Query extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with = array('user');
+		$criteria->together = true;
+		
 		$criteria->compare('id_query',$this->id_query);
 		$criteria->compare('creation_date',$this->creation_date,true);
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('book_id',$this->book_id);
+		$criteria->compare('book',$this->book_id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('comment',$this->comment,true);
+		
+		$criteria->compare("CONCAT_WS(' ', user.surname, user.name, user.parentname)", $this->user_search, true);
+		$criteria->compare("book.title)", $this->book_search, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'attributes'=>array(
+					'user_search'=>array(
+						'asc'=>"CONCAT_WS(' ', user.surname, user.name, user.parentname)",
+						'desc'=>"CONCAT_WS(' ', user.surname, user.name, user.parentname) DESC",
+					),
+					'book_search'=>array(
+						'asc'=>"book.title)",
+						'desc'=>"book.title DESC",
+					),
+					'*',
+				)
+			),
 		));
 	}
 
@@ -111,4 +135,59 @@ class Query extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function getStatus()
+	{
+		switch($this->status)
+		{
+		case "new":
+			return "Новая";
+			break;
+		case "returned":
+			return "Возвращена";
+			break;
+		case "given":
+			return "Выдана";
+			break;
+		case "canseled":
+			return "Отменена";
+			break;
+		}
+	}
+	
+	public function getQueryStatus()
+	{
+		$beforeUserCount = Query::model()->count("book_id=:book_id AND (status='new') AND id_query < :query_id", array(':book_id'=>$this->book_id, ':query_id'=>$this->id_query));
+		
+		if ($beforeUserCount < $this->book->current_count && $this->status == 'new')
+		{
+			return 'Доступна выдаче';
+		}
+		else
+		{
+			return 'Не доступна';
+		}
+	}
+	
+	public function getQueryActions()
+	{
+		$result = '';
+		
+		if ($this->status == 'new')
+		{
+			$beforeUserCount = Query::model()->count("book_id=:book_id AND (status='new') AND id_query < :query_id", array(':book_id'=>$this->book_id, ':query_id'=>$this->id_query));
+		
+			if ($beforeUserCount < $this->book->current_count && $this->status == 'new')
+			{
+				$result .= CHtml::link("Выдать", array('/query/give', 'query'=>$this->id_query));
+			}	
+		}
+		else if ($this->status = 'given')
+		{
+			$result .= CHtml::link("Принять", array('/query/recive', 'query'=>$this->id_query));
+		}
+		
+		return $result;
+	}
+	
 }
