@@ -1,0 +1,158 @@
+html,body{
+    height: 100%;
+	}
+.wrap {
+  min-height: 100%;
+  position:relative;
+}
+
+.title {
+  position:relative; 
+  height: 132px;
+  background-color: #23608f;
+  color: #cfd0d4;
+  background: #23608f url(../img/header_title_bg.png) 0 0 no-repeat;
+  text-transform: uppercase;
+  font-family: Tahoma;
+}
+a:focus,
+a,
+a:active,
+a:visited {
+  outline: none;
+  text-decoration:none;
+}
+
+.sitename {
+  position: absolute;
+  font-size: 28px;
+  left: 260px;
+  top: 32px;
+  }
+.corponame {
+  color: #d8d9dd;
+  position: absolute;
+  left: 277px;
+  font-size: 20px;
+  top: 83px;
+}
+/* Content */
+.content {
+  padding-bottom: 85px;
+}
+
+
+
+/* Navigaton */
+.footer ul,
+.navigation ul {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  }
+.footer li,
+.navigation li {
+  display: table-cell;
+  text-align: center;
+ }  
+.navigation li {
+  background: url(../img/nav_item_bg.png) top right no-repeat;
+}
+ .navigation a {
+  display: block;
+  width: 100%;
+  color: #595353;
+  font-size: 19px;
+  font-family: Tahoma;
+   padding: 3px 0px;
+ }
+.navigation a:hover {
+  background: #9b9da5;
+  color: #dbdde3;
+  text-decoration: none;
+}  
+.navigation {
+  background-color: #ababab;
+  background: url(../img/navigation_bg.png) top repeat-x;
+  height: 35px;
+  }
+ /* Footer */
+.footer {
+  background-color: #eae9e9;
+  border-bottom: 2px solid #b6b2b2;
+  text-align: center;
+  font-size: 11px;
+  height: 60px; 
+  width:100%;
+  position: absolute;
+  bottom: 0;
+ }
+.footer,
+.footer a {
+  color: #999696;
+  font-family: Tahoma;
+   }
+.footer li {
+  border-right: 2px solid #bebec5;   
+  }
+  
+.footer li:last-of-type {
+  border: none;
+}
+.signin {
+  background-color: #eae9e9;
+  padding: 20px;
+  }
+ 
+.userinfo {
+  padding: 20px;
+}
+.userinfo .controls {
+  text-align:right;
+}
+  
+.content table {
+  background-color: #eae9e9;
+  color: #737478;
+}
+.info td {
+  color: #eeeff7;
+}
+.books li{
+  min-height: 205px;
+  position: relative;
+  background-color: #eae9e9;
+  padding-left: 240px;
+  color: #737478;
+  font: 14px Tahoma, sans-serif;
+}
+.books h3 {
+  font: normal 20px Tahoma, sans-serif;
+  padding-top: 10px;
+}
+.books dt{
+  font-weight: normal;
+  width:auto;
+}
+.books dt:after{
+  content: ":";
+}
+.books dd {
+  margin-left: 0;
+}
+
+.books .preview {
+  position: absolute;
+  left:20px;
+  top:10px;
+}
+.books img{
+  height: 185px;
+}
+
+.bookaction form,
+.bookadmin form {
+  margin:0;
+}
