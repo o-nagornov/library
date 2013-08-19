@@ -58,6 +58,169 @@ class QueryController extends Controller
 		
 	}
 	
+	public function actionGive($query)
+	{
+		$query = Query::model()->findByPk($query);
+		if ($query->status != 'new')
+		{
+			Yii::app()->user->setFlash("error", "Книгу нельзя выдать - неверный статус заявки");
+			$this->redirect(array('/book/view', 'id'=>$query->book_id));
+			return;
+		}
+		
+		$transaction = $query->dbConnection->beginTransaction();
+		
+		try
+		{
+			if ($query->book->current_count >= 1)
+			{
+				$query->book->current_count -= 1;
+				$query->status = 'given';
+				if ($query->book->save() && $query->save())
+				{
+					$transaction->commit();
+				} else {
+					Yii::app()->user->setFlash("error", "Книгу нельзя выдать - ошибка базы данных");
+					$transaction->rollback();	
+				}
+			}
+			else
+			{
+				Yii::app()->user->setFlash("error", "Книгу нельзя выдать - ее нет в наличии");
+				$transaction->rollback();
+			}
+		}
+		catch (Exception $e)
+		{
+			Yii::app()->user->setFlash("error", "Книгу нельзя выдать - ее нет в наличии");
+			$transaction->rollback();
+		}
+		
+		$this->redirect(array('/book/view', 'id'=>$query->book_id));
+	}
+	
+	public function actionRecive($query)
+	{
+		$query = Query::model()->findByPk($query);
+		if ($query->status != 'given')
+		{
+			Yii::app()->user->setFlash("error", "Книгу нельзя выдать - неверный статус заявки");
+			$this->redirect(array('/book/view', 'id'=>$query->book_id));
+			return;
+		}
+		
+		$transaction = $query->dbConnection->beginTransaction();
+		
+		try
+		{
+			$query->book->current_count += 1;
+			$query->status = 'returned';
+			if ($query->book->save() && $query->save())
+			{
+				$transaction->commit();
+			} else {
+				Yii::app()->user->setFlash("error", "Книгу нельзя принять - ошибка базы данных");
+				$transaction->rollback();	
+			}
+		}
+		catch (Exception $e)
+		{
+			Yii::app()->user->setFlash("error", "Книгу нельзя принять");
+			$transaction->rollback();
+		}
+		
+		$this->redirect(array('/book/view', 'id'=>$query->book_id));
+	}
+	
+	public function actionCancel($query, $text)
+	{
+		$query = Query::model()->findByPk($query);
+		
+		$transaction = $query->dbConnection->beginTransaction();
+		
+		try
+		{
+			$query->status = 'сanceled';
+			if ($query->save())
+			{
+				$transaction->commit();
+			} else {
+				Yii::app()->user->setFlash("error", "Заявку нельзя отменить - ошибка базы данных");
+				$transaction->rollback();	
+			}
+		}
+		catch (Exception $e)
+		{
+			Yii::app()->user->setFlash("error", "Заявку нельзя отменить - ошибка базы данных");
+			$transaction->rollback();
+		}
+		
+		$this->redirect(array('/book/view', 'id'=>$query->book_id));
+	}
+	
+	public function actionDebit($book)
+	{
+		$book = Book::model()->findByPk($book);
+		
+		$transaction = $book->dbConnection->beginTransaction();
+		
+		try
+		{
+			if ($book->current_count <= 0)
+			{
+				Yii::app()->user->setFlash("error", "Книгу нельзя списать - ее не вернули");
+				$transaction->rollback();	
+			}
+			else
+			{
+				$book->current_count -= 1;
+				$book->total_count -= 1;
+				if ($book->save())
+				{
+					$transaction->commit();
+				} else {
+					Yii::app()->user->setFlash("error", "Книгу нельзя списать - ошибка базы данных");
+					$transaction->rollback();	
+				}
+			}
+		}
+		catch (Exception $e)
+		{
+			Yii::app()->user->setFlash("error", "Книгу нельзя списать");
+			$transaction->rollback();
+		}
+		
+		$this->redirect(array('/book/view', 'id'=>$book->id_book));
+	}
+	
+	public function actionCredit($book)
+	{
+		$book = Book::model()->findByPk($book);
+		
+		$transaction = $book->dbConnection->beginTransaction();
+		
+		try
+		{
+			$book->current_count += 1;
+			$book->total_count += 1;
+			if ($book->save())
+			{
+				$transaction->commit();
+			} else {
+				Yii::app()->user->setFlash("error", "Книгу нельзя добавить - ошибка базы данных");
+				$transaction->rollback();	
+			}
+		}
+		catch (Exception $e)
+		{
+			Yii::app()->user->setFlash("error", "Книгу нельзя добавить");
+			$transaction->rollback();
+		}
+		
+		$this->redirect(array('/book/view', 'id'=>$book->id_book));
+	}
+	
+	
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

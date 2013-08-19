@@ -32,5 +32,10 @@ $this->breadcrumbs=array(
 	$this->widget('application.components.RecommendationWidget', array('bookId'=>$book->id_book));
 	
 	$this->widget('application.components.BookStatisticWidget', array('book'=>$book));
+	
+	if (Yii::app()->user->isAdmin())
+	{
+		$this->widget('application.components.BookAdminPanelWidget', array('book'=>$book));
+	}
 ?>
 </p>
