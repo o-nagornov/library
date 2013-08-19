@@ -35,8 +35,8 @@
 				array('label'=>'Мои книги', 'url'=>array('/query/books'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Мои рекомендации', 'url'=>array('/recommendation'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Авторизироваться', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->

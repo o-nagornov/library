@@ -2,15 +2,9 @@
 /* @var $this RegistrationController */
 
 $this->breadcrumbs=array(
-	'Registration',
+	'Регистрация',
 );
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
-
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -22,7 +16,7 @@ $this->breadcrumbs=array(
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Поля, отмеченные <span class="required">*</span> - обязательные</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -57,7 +51,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton('Зарегистрироваться'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

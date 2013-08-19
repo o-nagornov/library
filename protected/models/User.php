@@ -65,13 +65,13 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id_user' => 'Id User',
-			'name' => 'Name',
-			'surname' => 'Surname',
-			'parentname' => 'Parentname',
-			'email' => 'Email',
-			'pass' => 'Pass',
-			'role' => 'Role',
-			'check_hash' => 'Check Hash',
+			'name' => 'Имя',
+			'surname' => 'Фамилия',
+			'parentname' => 'Отчество',
+			'email' => 'E-mail',
+			'pass' => 'Пароль',
+			'role' => 'Роль',
+			'check_hash' => 'Проверочный ключ',
 		);
 	}
 
