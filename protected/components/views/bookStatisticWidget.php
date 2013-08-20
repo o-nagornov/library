@@ -1,12 +1,16 @@
-<h5>Книгу читали: <?php echo $readCount; ?> </h5>
-<h5>Книгу ждут: <?php echo $waitCount; ?> </h5>
-<h5>Книгу рекомендуют: <?php echo $recommendationCount; ?> </h5>
-
-<?php
-	if ($holder == 'none')
-	{
-		echo "<h5>Книгу никто не читает</h5>";
-	} else {
-		echo "<h5>Книгу читает: $holder</h5>";
-	}
-?>
+<dl class="dl-horizontal">
+	<dt>Книгу читает</dt>
+		<dd>
+			<?php
+				if ($holder == 'none')
+				{
+					echo "никто";
+				} else {
+					echo $holder;
+				}
+			?>
+		</dd>
+	<dt>Книгу ждут</dt><dd><?php echo $waitCount; ?></dd>
+	<dt>Книгу читали</dt><dd><?php echo $readCount; ?></dd>
+	<dt>Книгу рекомендовали</dt><dd><?php echo $recommendationCount; ?></dd>
+</dl>

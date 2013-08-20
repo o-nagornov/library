@@ -68,16 +68,24 @@ $types += CHtml::listData(Type::model()->findAll(), 'id_type', 'type');
 	<?php echo CHtml::endForm(); ?>
 </div>
 <?php
-$this->widget('zii.widgets.CListView', array(
-    'dataProvider'=>$dataProvider,
-    'itemView'=>'_view',
-    'sortableAttributes'=>array(
-        'id'=>'cronologico',
-        'transaction'
-    ),
-    'id'=>'ajaxListView',
-));
-
+if ($dataProvider->totalItemCount == 0)
+{
+	echo "<h5>Нет популярных книг</h5>";
+} else {
+	$this->widget('zii.widgets.CListView', array(
+		'dataProvider'=>$dataProvider,	
+		'itemView'=>'_view',
+		'itemsTagName'=>'ul',
+		'tagName'=>'span',
+		'itemsCssClass'=>'books unstyled',
+		'id'=>'ajaxListView',
+		'htmlOptions'=>array('class'=>'books unstyled'),
+		'summaryText'=>'',
+		'sorterHeader'=>'',
+		'sorterFooter'=>'',
+		'sortableAttributes'=>'',
+	));	
+}
 
 Yii::app()->clientScript->registerScript('search',
     "var ajaxUpdateTimeout;

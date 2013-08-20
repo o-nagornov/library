@@ -2,18 +2,11 @@
 /* @var $this RegistrationController */
 
 $this->breadcrumbs=array(
-	'Registration'=>array('/registration'),
-	'Approve',
+	'Регистрация'=>array('/registration'),
+	'Подтверждение',
 );
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
-
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
-
-<h5>
+<h3>
 <?php
 	switch ($status)
 	{
@@ -28,4 +21,4 @@ $this->breadcrumbs=array(
 			break;
 	}
 ?>
-</h5>
+</h3>

@@ -2,37 +2,53 @@
 /* @var $this QueryController */
 
 $this->breadcrumbs=array(
-	'Query',
+	'Заявки',
 );
-
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
 
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
+<div class="signin">
+	<?php echo CHtml::beginForm(CHtml::normalizeUrl(array('/query/index')), 'get', array('id'=>'filter-form')); ?>
+		<div class="row">
+			<div class="span3">
+				<div class="control-group">
+					<?php echo CHtml::label('Название', 'title', array('class'=>'control-label')); ?>
+					<div class="controls">		
+						<?php echo CHtml::textField('title', (isset($_GET['title'])) ? $_GET['title'] : '', array('id'=>'title')); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<div class="control-group">
+					<div class="controls">
+						<?php echo CHtml::submitButton('Искать!', array('name'=>'', 'class'=>'btn')); ?>
+					</div>
+				</div>
+			</div>
+		</div>		
+	<?php echo CHtml::endForm(); ?>
+</div>
 
 <?php
-
-	$types[""] = "";
-	$types += CHtml::listData(Type::model()->findAll(), 'id_type', 'type');
-	
-echo CHtml::beginForm(CHtml::normalizeUrl(array('/query/index')), 'get', array('id'=>'filter-form'))
-    ."<br>Название".CHtml::textField('title', (isset($_GET['title'])) ? $_GET['title'] : '', array('id'=>'title'))
-	//."<br>У кого книга".CHtml::textField('name', (isset($_GET['name'])) ? $_GET['name'] : '', array('id'=>'name'))
-    ."<br>".CHtml::submitButton('Search', array('name'=>''))
-    .CHtml::endForm();
-
-$this->widget('zii.widgets.CListView', array(
-    'dataProvider'=>$dataProvider,
-    'itemView'=>'_view',
-    'sortableAttributes'=>array(
-        'id'=>'cronologico',
-        'transaction'
-    ),
-    'id'=>'ajaxListView',
-));
+if ($dataProvider->totalItemCount == 0)
+	{
+		echo "<h5>У вас нет заявок</h5>";
+	} else {
+		$this->widget('zii.widgets.CListView', array(
+			'dataProvider'=>$dataProvider,	
+			'itemView'=>'_view',
+			'itemsTagName'=>'ul',
+			'tagName'=>'span',
+			'itemsCssClass'=>'books unstyled',
+			'id'=>'ajaxListView',
+			'htmlOptions'=>array('class'=>'books unstyled'),
+			'summaryText'=>'',
+			'sorterHeader'=>'',
+			'sorterFooter'=>'',
+			'sortableAttributes'=>'',
+		));
+	}
 
 
 Yii::app()->clientScript->registerScript('search',

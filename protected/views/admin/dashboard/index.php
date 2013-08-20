@@ -2,7 +2,7 @@
 /* @var $this DashboardController */
 
 $this->breadcrumbs=array(
-	'Dashboard',
+	'Администрирование',
 );
 ?>
 <h1><?php echo $this->id . '/' . $this->action->id; ?></h1>

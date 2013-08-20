@@ -22,18 +22,16 @@
 				$this->widget('zii.widgets.CMenu',array(
 					'items'=>array(
 						array('label'=>'На главную', 'url'=>array('/site/index')),
-						array('label'=>'Помощь', 'url'=>array('/site/page', 'view'=>'help')),
-						array('label'=>'Мои заявки', 'url'=>array('/query'), 'visible'=>!Yii::app()->user->isGuest),
+						//array('label'=>'Помощь', 'url'=>array('/site/page', 'view'=>'help')),
 						array('label'=>'Поиск книг', 'url'=>array('/book'), 'visible'=>!Yii::app()->user->isGuest),
-						array('label'=>'Мои книги', 'url'=>array('/query/books'), 'visible'=>!Yii::app()->user->isGuest),
-						array('label'=>'Мои рекомендации', 'url'=>array('/recommendation'), 'visible'=>!Yii::app()->user->isGuest),
-						array('label'=>'Управление заявками', 'url'=>array('/queryManager'), 'visible'=>Yii::app()->user->isAdmin()),
-						array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),
+						array('label'=>'Заявки', 'url'=>array('/query'), 'visible'=>!Yii::app()->user->isGuest),
+						array('label'=>'Книги', 'url'=>array('/query/books'), 'visible'=>!Yii::app()->user->isGuest),
+						array('label'=>'Рекомендации', 'url'=>array('/recommendation'), 'visible'=>!Yii::app()->user->isGuest),
 						array('label'=>'Авторизироваться', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					),
 				));
-			?>
+			?>	
 		</div><!-- mainmenu -->
 	</div><!-- header -->
 
@@ -48,6 +46,18 @@
 	</div>
 
 	<div class="footer">
+			<?php
+				$this->widget('zii.widgets.CMenu',array(
+					'items'=>array(
+						array('label'=>'Управление заявками', 'url'=>array('/queryManager'), 'visible'=>Yii::app()->user->isAdmin()),
+						array('label'=>'Cписок возврата', 'url'=>array('/queryManager/recivingList'), 'visible'=>Yii::app()->user->isAdmin()),
+						array('label'=>'Список выдачи', 'url'=>array('/queryManager/gettingList'), 'visible'=>Yii::app()->user->isAdmin()),
+						array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),
+					),
+				));
+			?>
+
+		
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
