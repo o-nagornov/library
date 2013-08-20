@@ -4,7 +4,7 @@
 	{
 		case 'new':
 			echo 'Вы уже оставили заявку. ';
-			echo CHtml::link('Отказаться', array('query/abadon', 'id'=>$bookId));
+			echo CHtml::link('Отказаться.', array('query/abadon', 'id'=>$bookId));
 			break;
 		case 'given':
 			echo 'Книга уже у Вас';
@@ -17,19 +17,17 @@
 			break;
 	}
 ?>
-</h5>
 
-<h5>
 <?php
 	if ($status != 'download')
 	{
 		switch ($queueStatus)
 		{
 			case 'last':
-				echo "Вы последний.";
+				echo "Вы последний в очереди.";
 				break;
 			case 'first':
-				echo "Вы первый!";
+				echo "Вы первый в очереди!";
 				break;
 			case 'queue':
 				echo "Вы в очереди, до Вас: $beforeCount";
@@ -37,9 +35,7 @@
 		}
 	}
 ?>
-</h5>
 
-<h5>
 <?php
 	if ($status != 'download')
 	{
