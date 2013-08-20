@@ -1,0 +1,274 @@
+DELETE FROM tbl_book_has_type WHERE book_id > 0;
+DELETE FROM tbl_book_has_author WHERE book_id > 0;
+DELETE FROM tbl_book_has_keyword WHERE book_id > 0;
+DELETE FROM tbl_keyword WHERE id_keyword > 0;
+DELETE FROM tbl_author WHERE id_author > 0;
+DELETE FROM tbl_query WHERE id_query > 0;
+DELETE FROM tbl_recommendation WHERE id_recommendation > 0;
+DELETE FROM tbl_type WHERE id_type > 0;
+DELETE FROM tbl_user WHERE id_user > 0;
+DELETE FROM tbl_book WHERE id_book > 0;
+
+INSERT INTO tbl_user VALUES (1, 'Олег', 'Нагорнов', 'Игоревич', 'nagornov.oi@gmail.com', MD5('qwerty'), 'root', MD5('1nagornov.oi@gmail.com1'));
+INSERT INTO tbl_user VALUES (2, 'Иван', 'Петров', 'Алексеевич', 'test@test.com', MD5('qwerty'), 'admin', MD5('2test@test.com2'));
+INSERT INTO tbl_user VALUES (3, 'Петр', 'Сидоров', 'Александрович', 'test1@test.com', MD5('qwerty'), 'user', MD5('3test1@test.com3'));
+INSERT INTO tbl_user VALUES (4, 'Сергей', 'Иванов', 'Иванович', 'test2@test.com', MD5('qwerty'), 'user', MD5('4test2@test.com4'));
+INSERT INTO tbl_user VALUES (5, 'Андрей', 'Баракшаев', 'Александрович', 'barap@mail.com', MD5('qwerty'), 'user', MD5('5barap@mail.ru5'));
+INSERT INTO tbl_user VALUES (6, 'Николай', 'Куприянов', 'Евгеньевич', 'nikolay@mail.ru', MD5('qwerty'), 'user', MD5('6nikolay@mail.ru6'));
+INSERT INTO tbl_user VALUES (7, 'Наталья', 'Шагаева', 'Андреевна', 'shagaeva@email.com', MD5('qwerty'), 'user', MD5('7shagaeva@email.com7'));
+INSERT INTO tbl_user VALUES (8, 'Анжелика', 'Морозова', 'Олеговна', 'moroz@email.com', MD5('qwerty'), 'user', MD5('8moroz@email.com8'));
+INSERT INTO tbl_user VALUES (9, 'Дмитрий', 'Марасов', 'Сергеевич', 'marasov@mail.ru', MD5('qwerty'), 'user', MD5('9marasov@mail.ru9'));
+INSERT INTO tbl_user VALUES (10, 'Маргарита', 'Карасева', 'Алексеевна', 'margarit@mail.ru', MD5('qwerty'), 'user', MD5('10margarit@mail.ru10'));
+INSERT INTO tbl_user VALUES (11, 'Полина', 'Николаева', 'Николаевна', 'nikolaeva@email.com', MD5('qwerty'), 'user', MD5('11nikolaeva@email.com11'));
+
+
+INSERT INTO tbl_author VALUES (1, 'Шило В.Л.');
+INSERT INTO tbl_author VALUES (2, 'Эрих Гамма');
+INSERT INTO tbl_author VALUES (3, 'Ричард Хелм');
+INSERT INTO tbl_author VALUES (4, 'Ральф Джонсон');
+INSERT INTO tbl_author VALUES (5, 'Джон Влиссидс');
+INSERT INTO tbl_author VALUES (6, 'Терехова В.А.');
+INSERT INTO tbl_author VALUES (7, 'Черняк В.З.');
+INSERT INTO tbl_author VALUES (8, 'Кибанов А.Я.');
+INSERT INTO tbl_author VALUES (9, 'Романовский М.В.');
+INSERT INTO tbl_author VALUES (10, 'Врублевский О.В.');
+INSERT INTO tbl_author VALUES (11, 'Поляк Г.Б.');
+INSERT INTO tbl_author VALUES (12, 'Белоглазова Г.Н.');
+INSERT INTO tbl_author VALUES (13, 'Ковалев В.В.');
+INSERT INTO tbl_author VALUES (14, 'Ковалев А.В.');
+INSERT INTO tbl_author VALUES (15, 'Кучарина Е.А.');
+INSERT INTO tbl_author VALUES (16, 'Кумскова И.А.'); 
+INSERT INTO tbl_author VALUES (17, 'Хабаров В.И.'); 
+INSERT INTO tbl_author VALUES (18, 'Попова Н.Ю.'); 
+INSERT INTO tbl_author VALUES (19, 'Николай Прохоренок'); 
+INSERT INTO tbl_author VALUES (20, 'Михаил Дубаков'); 
+INSERT INTO tbl_author VALUES (21, 'Наталья Сержантова');
+INSERT INTO tbl_author VALUES (22, 'Мельников В.П.'); 
+INSERT INTO tbl_author VALUES (23, 'Петраков  А.М. '); 
+INSERT INTO tbl_author VALUES (24, 'Платонов  В.В.'); 
+INSERT INTO tbl_author VALUES (25, 'Проскурин  В.Г.'); 
+INSERT INTO tbl_author VALUES (26, 'Глушкова  Н. Б.'); 
+INSERT INTO tbl_author VALUES (27, 'Партыка  Т.Л.');
+INSERT INTO tbl_author VALUES (28, 'Попов И.И.');  
+INSERT INTO tbl_author VALUES (29, 'Клейменов С.А.');
+
+INSERT INTO tbl_type VALUES (1, 'Э/Т');
+INSERT INTO tbl_type VALUES (2, 'ООП');
+INSERT INTO tbl_type VALUES (3, 'Финансы');
+INSERT INTO tbl_type VALUES (4, 'Менеджемент');
+INSERT INTO tbl_type VALUES (5, 'Экономика');
+INSERT INTO tbl_type VALUES (6, 'Налоги');
+INSERT INTO tbl_type VALUES (7, 'БД');
+INSERT INTO tbl_type VALUES (8, 'Веб');
+INSERT INTO tbl_type VALUES (9, 'ИБ');
+
+
+
+INSERT INTO tbl_keyword VALUES (1, 'C++');
+INSERT INTO tbl_keyword VALUES (2, 'микросхема');
+INSERT INTO tbl_keyword VALUES (3, 'Pattern');
+INSERT INTO tbl_keyword VALUES (4, 'отчетность');
+INSERT INTO tbl_keyword VALUES (5, 'доходы');
+INSERT INTO tbl_keyword VALUES (6, 'расходы');
+INSERT INTO tbl_keyword VALUES (7, 'бизнес-проект');
+INSERT INTO tbl_keyword VALUES (8, 'инвестиции');
+INSERT INTO tbl_keyword VALUES (9, 'кадровое планирование');
+INSERT INTO tbl_keyword VALUES (10, 'уровни управления');
+INSERT INTO tbl_keyword VALUES (11, 'финансовый контроль');
+INSERT INTO tbl_keyword VALUES (12, 'платежная система');
+INSERT INTO tbl_keyword VALUES (13, 'теория налогов');
+INSERT INTO tbl_keyword VALUES (14, 'НДС');
+INSERT INTO tbl_keyword VALUES (15, 'налоговые системы');
+INSERT INTO tbl_keyword VALUES (16, 'бюджет');
+INSERT INTO tbl_keyword VALUES (17, 'финансовые активы');
+INSERT INTO tbl_keyword VALUES (18, 'финансовый риск');
+INSERT INTO tbl_keyword VALUES (19, 'дисконтирование');
+INSERT INTO tbl_keyword VALUES (20, 'денежные потоки');
+INSERT INTO tbl_keyword VALUES (21, 'язык SQL');
+INSERT INTO tbl_keyword VALUES (22, 'ER-модели');
+INSERT INTO tbl_keyword VALUES (23, 'Case-системы');
+INSERT INTO tbl_keyword VALUES (24, 'система планирования');
+INSERT INTO tbl_keyword VALUES (25, 'маркетинговая служба');
+INSERT INTO tbl_keyword VALUES (26, 'язык HTML');
+INSERT INTO tbl_keyword VALUES (27, 'JavaScript');
+INSERT INTO tbl_keyword VALUES (28, 'язык PHP');
+INSERT INTO tbl_keyword VALUES (29, 'MySQL');
+INSERT INTO tbl_keyword VALUES (30, 'SQL Server 2005');
+INSERT INTO tbl_keyword VALUES (31, 'компьютерный вирусы');
+INSERT INTO tbl_keyword VALUES (32, 'криптографическая защита');
+INSERT INTO tbl_keyword VALUES (33, 'VPN');
+INSERT INTO tbl_keyword VALUES (34, 'сетевые атаки');
+INSERT INTO tbl_keyword VALUES (35, 'программные закладки');
+INSERT INTO tbl_keyword VALUES (36, 'антивирусная защита');
+INSERT INTO tbl_keyword VALUES (37, 'Банк России');
+INSERT INTO tbl_keyword VALUES (38, 'банковские инновации');
+INSERT INTO tbl_keyword VALUES (39, 'сети ЭВМ');
+
+
+
+
+INSERT INTO tbl_book VALUES (1, 'Популярные цифровые ИС', 'справочник по микросхемам', 1, 1, NULL, 1987, NULL);
+INSERT INTO tbl_book VALUES (2, 'Design Patterns', 'справочник по ООП', 1, 2, NULL, 1994, NULL);
+INSERT INTO tbl_book VALUES (3, 'Финансовый учет', 'справочник по финансам', 1, 2, NULL, 2010, NULL);
+INSERT INTO tbl_book VALUES (4, 'Бизнес-планирование', 'пособие по менеджементу', 1, 2, NULL, 2012, NULL);
+INSERT INTO tbl_book VALUES (5, 'Управление персоналом', 'справочник по менджементу', 1, 2, NULL, 2011, NULL);
+INSERT INTO tbl_book VALUES (6, 'Финансы и денежное обращение', 'справочник по экономике', 1, 2, NULL, 2012, NULL);
+INSERT INTO tbl_book VALUES (7, 'Налоги и налогообложение', 'справочник по налогам', 1, 2, NULL, 2012, NULL);
+INSERT INTO tbl_book VALUES (8, 'Финансы и кредит', 'пособие по финансам', 1, 2, NULL, 2011, NULL);
+INSERT INTO tbl_book VALUES (9, 'Финансовый менеджемент', 'справочник по менеджементу', 1, 2, NULL, 2010, NULL);
+INSERT INTO tbl_book VALUES (10, 'Инвестиционный анализ', 'справочник по экономике', 1, 2, NULL, 2006, NULL);
+INSERT INTO tbl_book VALUES (11, 'Базы данных', 'справочник по проектированию БД', 1, 2, NULL, 2011, NULL);
+INSERT INTO tbl_book VALUES (12, 'Банковский маркетинг', 'справочник по финансам', 1, 2, NULL, 2012, NULL);
+INSERT INTO tbl_book VALUES (13, 'Веб-мастер', 'справочник по Вебу', 1, 2, NULL, 2010, NULL);
+INSERT INTO tbl_book VALUES (14, 'Веб-мастеринг ', 'справочник по Вебу', 1, 2, NULL, 2011, NULL);
+INSERT INTO tbl_book VALUES (15, 'Базы данных Microsoft SQL Server 2005.', 'справочник по проектированию БД', 1, 2, NULL, 2008, NULL);
+INSERT INTO tbl_book VALUES (16, 'Информационная безопасность', 'справочник по обеспечению ИБ', 1, 2, NULL, 2011, NULL);
+INSERT INTO tbl_book VALUES (17, 'Программно-аппаратные средства защиты информации', 'справочник по обеспечению ИБ', 1, 2, NULL, 2013, NULL);
+INSERT INTO tbl_book VALUES (18, 'Защита программ и данных', 'справочник по обеспечению ИБ', 1, 2, NULL, 2012, NULL);
+INSERT INTO tbl_book VALUES (19, 'Банковское дело', 'справочник по финансам', 1, 2, NULL, 2010, NULL);
+INSERT INTO tbl_book VALUES (20, 'Информационная безопасность', 'справочник по обеспечению ИБ', 1, 2, NULL, 2012, NULL);
+
+
+INSERT INTO tbl_book_has_author VALUES (1, 1);
+INSERT INTO tbl_book_has_author VALUES (2, 2);
+INSERT INTO tbl_book_has_author VALUES (2, 3);
+INSERT INTO tbl_book_has_author VALUES (2, 4);
+INSERT INTO tbl_book_has_author VALUES (2, 5);
+INSERT INTO tbl_book_has_author VALUES (3, 6);
+INSERT INTO tbl_book_has_author VALUES (4, 7);
+INSERT INTO tbl_book_has_author VALUES (5, 8);
+INSERT INTO tbl_book_has_author VALUES (6, 9);
+INSERT INTO tbl_book_has_author VALUES (6, 10);
+INSERT INTO tbl_book_has_author VALUES (7, 11);
+INSERT INTO tbl_book_has_author VALUES (8, 12);
+INSERT INTO tbl_book_has_author VALUES (9, 13);
+INSERT INTO tbl_book_has_author VALUES (9, 14); 
+INSERT INTO tbl_book_has_author VALUES (10, 15);
+INSERT INTO tbl_book_has_author VALUES (11, 16);
+INSERT INTO tbl_book_has_author VALUES (12, 17);
+INSERT INTO tbl_book_has_author VALUES (12, 18);
+INSERT INTO tbl_book_has_author VALUES (13, 19);
+INSERT INTO tbl_book_has_author VALUES (14, 20);
+INSERT INTO tbl_book_has_author VALUES (15, 21);
+INSERT INTO tbl_book_has_author VALUES (16, 22);
+INSERT INTO tbl_book_has_author VALUES (16, 23);
+INSERT INTO tbl_book_has_author VALUES (16, 29);
+INSERT INTO tbl_book_has_author VALUES (17, 24);
+INSERT INTO tbl_book_has_author VALUES (18, 25);
+INSERT INTO tbl_book_has_author VALUES (19, 26);
+INSERT INTO tbl_book_has_author VALUES (20, 27);
+INSERT INTO tbl_book_has_author VALUES (20, 28);
+
+
+INSERT INTO tbl_book_has_keyword VALUES (1, 2);
+INSERT INTO tbl_book_has_keyword VALUES (2, 1);
+INSERT INTO tbl_book_has_keyword VALUES (2, 3);
+INSERT INTO tbl_book_has_keyword VALUES (3, 4);
+INSERT INTO tbl_book_has_keyword VALUES (3, 5);
+INSERT INTO tbl_book_has_keyword VALUES (3, 6);
+INSERT INTO tbl_book_has_keyword VALUES (4, 7);
+INSERT INTO tbl_book_has_keyword VALUES (4, 8);
+INSERT INTO tbl_book_has_keyword VALUES (5, 9);
+INSERT INTO tbl_book_has_keyword VALUES (5, 10);
+INSERT INTO tbl_book_has_keyword VALUES (6, 11);
+INSERT INTO tbl_book_has_keyword VALUES (6, 12);
+INSERT INTO tbl_book_has_keyword VALUES (7, 13);
+INSERT INTO tbl_book_has_keyword VALUES (7, 14);
+INSERT INTO tbl_book_has_keyword VALUES (7, 15);
+INSERT INTO tbl_book_has_keyword VALUES (8, 12);
+INSERT INTO tbl_book_has_keyword VALUES (8, 16);
+INSERT INTO tbl_book_has_keyword VALUES (9, 17);
+INSERT INTO tbl_book_has_keyword VALUES (9, 18);
+INSERT INTO tbl_book_has_keyword VALUES (9, 4);
+INSERT INTO tbl_book_has_keyword VALUES (10, 19);
+INSERT INTO tbl_book_has_keyword VALUES (10, 20);
+INSERT INTO tbl_book_has_keyword VALUES (11, 21);
+INSERT INTO tbl_book_has_keyword VALUES (11, 22);
+INSERT INTO tbl_book_has_keyword VALUES (11, 23);
+INSERT INTO tbl_book_has_keyword VALUES (12, 24);
+INSERT INTO tbl_book_has_keyword VALUES (12, 25);
+INSERT INTO tbl_book_has_keyword VALUES (13, 26);
+INSERT INTO tbl_book_has_keyword VALUES (13, 27);
+INSERT INTO tbl_book_has_keyword VALUES (14, 28);
+INSERT INTO tbl_book_has_keyword VALUES (14, 29);
+INSERT INTO tbl_book_has_keyword VALUES (15, 30);
+INSERT INTO tbl_book_has_keyword VALUES (15, 21);
+INSERT INTO tbl_book_has_keyword VALUES (16, 31);
+INSERT INTO tbl_book_has_keyword VALUES (16, 32);
+INSERT INTO tbl_book_has_keyword VALUES (17, 33);
+INSERT INTO tbl_book_has_keyword VALUES (17, 34);
+INSERT INTO tbl_book_has_keyword VALUES (18, 35);
+INSERT INTO tbl_book_has_keyword VALUES (18, 36);
+INSERT INTO tbl_book_has_keyword VALUES (19, 37);
+INSERT INTO tbl_book_has_keyword VALUES (19, 38);
+INSERT INTO tbl_book_has_keyword VALUES (20, 32);
+INSERT INTO tbl_book_has_keyword VALUES (20, 36);
+INSERT INTO tbl_book_has_keyword VALUES (20, 39);
+
+
+INSERT INTO tbl_book_has_type VALUES (1, 1);
+INSERT INTO tbl_book_has_type VALUES (2, 2);
+INSERT INTO tbl_book_has_type VALUES (3, 3);
+INSERT INTO tbl_book_has_type VALUES (4, 4);
+INSERT INTO tbl_book_has_type VALUES (5, 4);
+INSERT INTO tbl_book_has_type VALUES (6, 5);
+INSERT INTO tbl_book_has_type VALUES (7, 6);
+INSERT INTO tbl_book_has_type VALUES (8, 3);
+INSERT INTO tbl_book_has_type VALUES (9, 4);
+INSERT INTO tbl_book_has_type VALUES (10, 5);
+INSERT INTO tbl_book_has_type VALUES (11, 7);
+INSERT INTO tbl_book_has_type VALUES (12, 3);
+INSERT INTO tbl_book_has_type VALUES (13, 8);
+INSERT INTO tbl_book_has_type VALUES (14, 8);
+INSERT INTO tbl_book_has_type VALUES (15, 7);
+INSERT INTO tbl_book_has_type VALUES (16, 9);
+INSERT INTO tbl_book_has_type VALUES (17, 9);
+INSERT INTO tbl_book_has_type VALUES (18, 9);
+INSERT INTO tbl_book_has_type VALUES (19, 3);
+INSERT INTO tbl_book_has_type VALUES (20, 9);
+
+
+
+INSERT INTO tbl_recommendation VALUES (1, 'это нужно знать', 2, 1, 3);
+INSERT INTO tbl_recommendation VALUES (2, 'и это тоже нужно знать', 1, 1, 2); 
+INSERT INTO tbl_recommendation VALUES (3, 'это нужно знать', 5, 2, 1);
+INSERT INTO tbl_recommendation VALUES (4, 'и это тоже нужно знать', 4, 3, 1);
+INSERT INTO tbl_recommendation VALUES (5, 'это нужно знать', 10, 5, 4);
+INSERT INTO tbl_recommendation VALUES (6, 'и это тоже нужно знать', 11, 10, 6);
+INSERT INTO tbl_recommendation VALUES (7, 'это нужно знать', 13, 7, 8);
+INSERT INTO tbl_recommendation VALUES (8, 'и это тоже нужно знать', 17, 9, 5);
+INSERT INTO tbl_recommendation VALUES (9, 'это нужно знать', 12, 1, 8);
+INSERT INTO tbl_recommendation VALUES (10, 'и это тоже нужно знать', 19, 1, 5); 
+INSERT INTO tbl_recommendation VALUES (11, 'это нужно знать', 3, 10, 9);
+INSERT INTO tbl_recommendation VALUES (12, 'и это тоже нужно знать', 15, 2, 7);
+INSERT INTO tbl_recommendation VALUES (13, 'это нужно знать', 10, 4, 5);
+INSERT INTO tbl_recommendation VALUES (14, 'и это тоже нужно знать', 6, 9, 11);
+INSERT INTO tbl_recommendation VALUES (15, 'это нужно знать', 14, 5, 3);
+INSERT INTO tbl_recommendation VALUES (16, 'и это тоже нужно знать', 10, 6, 7); 
+ 
+
+INSERT INTO tbl_query VALUES (1, '2013-08-15 19:20:38', 'given', 2, 2, NULL);
+INSERT INTO tbl_query VALUES (2, '2013-08-15 19:20:39', 'new', 2, 1, NULL);
+INSERT INTO tbl_query VALUES (3, '2013-08-15 19:20:40', 'new', 2, 3, NULL);
+INSERT INTO tbl_query VALUES (4, '2013-08-15 19:20:41', 'new', 2, 4, NULL);
+INSERT INTO tbl_query VALUES (5, '2013-08-15 19:20:41', 'new', 1, 1, NULL);
+INSERT INTO tbl_query VALUES (6, '2013-08-15 19:25:30', 'recived', 4, 11, NULL);
+INSERT INTO tbl_query VALUES (7, '2013-08-15 19:30:45', 'recived', 13, 7, NULL);
+INSERT INTO tbl_query VALUES (8, '2013-08-15 19:40:40', 'recived', 18, 5, NULL);
+INSERT INTO tbl_query VALUES (9, '2013-08-15 19:50:43', 'recived', 4, 8, NULL);
+INSERT INTO tbl_query VALUES (10, '2013-08-15 19:55:40', 'recived', 11, 5, NULL);
+INSERT INTO tbl_query VALUES (11, '2013-08-15 19:58:43', 'recived', 7, 6, NULL);
+INSERT INTO tbl_query VALUES (12, '2013-08-15 20:00:31', 'canceled', 8, 10, NULL);
+INSERT INTO tbl_query VALUES (13, '2013-08-15 20:10:39', 'canceled', 12, 4, NULL);
+INSERT INTO tbl_query VALUES (14, '2013-08-15 20:20:31', 'canceled', 8, 10, NULL);
+INSERT INTO tbl_query VALUES (15, '2013-08-15 20:25:39', 'canceled', 12, 4, NULL);
+INSERT INTO tbl_query VALUES (16, '2013-08-15 20:30:46', 'canceled', 14, 3, NULL);
+INSERT INTO tbl_query VALUES (17, '2013-08-15 20:35:21', 'given', 19, 4, NULL);
+INSERT INTO tbl_query VALUES (18, '2013-08-15 20:40:39', 'given', 5, 7, NULL);
+INSERT INTO tbl_query VALUES (19, '2013-08-15 20:50:39', 'given', 8, 10, NULL);
+INSERT INTO tbl_query VALUES (20, '2013-08-16 09:40:39', 'given', 3, 7, NULL);
+INSERT INTO tbl_query VALUES (21, '2013-08-16 09:50:39', 'given', 2, 4, NULL);
+
+
+
+
