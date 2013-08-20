@@ -18,7 +18,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		array(
 			  'header'=>'Книга',
 			  'name'=>'book_search',
-			  'value'=>'$data->book->title',
+			  'type'=>'html',
+			  'value'=>'CHtml::link(CHtml::encode($data->book->title), array("/book/view", "id"=>$data->book_id))',
 			 ),
 		array(
 			  'header'=>'Статус заявки',
@@ -26,7 +27,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			 ),
 		array(
 			  'header'=>'Действия',
-			  'value'=>'$data->getQueryActions()',
+			  'value'=>'CHtml::link("Перейти", array("/queryManager/view", "id"=>$data->id_query))',
 			  'type'=>'html',
 			 ),
 		'comment',

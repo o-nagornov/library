@@ -88,7 +88,7 @@ class Query extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($limit = -1)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
@@ -107,22 +107,49 @@ class Query extends CActiveRecord
 		$criteria->compare("CONCAT_WS(' ', user.surname, user.name, user.parentname)", $this->user_search, true);
 		$criteria->compare("book.title)", $this->book_search, true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-			'sort'=>array(
-				'attributes'=>array(
-					'user_search'=>array(
-						'asc'=>"CONCAT_WS(' ', user.surname, user.name, user.parentname)",
-						'desc'=>"CONCAT_WS(' ', user.surname, user.name, user.parentname) DESC",
-					),
-					'book_search'=>array(
-						'asc'=>"book.title)",
-						'desc'=>"book.title DESC",
-					),
-					'*',
-				)
-			),
-		));
+		
+		if ($limit != -1)
+		{
+			return new CActiveDataProvider($this, array(
+				'criteria' => $criteria,
+				'sort' => array(
+					'attributes' => array(
+						'user_search' => array(
+							'asc' => "CONCAT_WS(' ', user.surname, user.name, user.parentname)",
+							'desc' => "CONCAT_WS(' ', user.surname, user.name, user.parentname) DESC",
+						),
+						'book_search'=>array(
+							'asc' => "book.title)",
+							'desc' => "book.title DESC",
+						),
+						'*',
+					)
+				),
+				'paginator'=>array(
+					'pageSize' => 10,
+				),
+			));	
+		}
+		else
+		{
+			return new CActiveDataProvider($this, array(
+				'criteria' => $criteria,
+				'sort' => array(
+					'attributes' => array(
+						'user_search' => array(
+							'asc' => "CONCAT_WS(' ', user.surname, user.name, user.parentname)",
+							'desc' => "CONCAT_WS(' ', user.surname, user.name, user.parentname) DESC",
+						),
+						'book_search' => array(
+							'asc' => "book.title)",
+							'desc' => "book.title DESC",
+						),
+						'*',
+					)
+				),
+			));
+		}
+		
 	}
 
 	/**
@@ -161,7 +188,7 @@ class Query extends CActiveRecord
 		
 		if ($beforeUserCount < $this->book->current_count && $this->status == 'new')
 		{
-			return 'Доступна выдаче';
+			return 'Доступна для выдачи';
 		}
 		else
 		{
@@ -179,12 +206,18 @@ class Query extends CActiveRecord
 		
 			if ($beforeUserCount < $this->book->current_count && $this->status == 'new')
 			{
-				$result .= CHtml::link("Выдать", array('/query/give', 'query'=>$this->id_query));
-			}	
+				$result .= CHtml::link(CHtml::button("Выдать"), array('/query/give', 'query'=>$this->id_query));
+			}
+			
+			$result .= CHtml::beginForm(CHtml::normalizeUrl(array('/query/cancel')), 'get', array('id'=>'cancel-form'))
+					.CHtml::hiddenField('query', $this->id_query, array('id'=>'query_'.$this->id_query))
+					.CHtml::textField('text', '', array('id'=>'text_'.$this->id_query))
+					.CHtml::submitButton('Отменить', array('name'=>''))
+					.CHtml::endForm();
 		}
 		else if ($this->status = 'given')
 		{
-			$result .= CHtml::link("Принять", array('/query/recive', 'query'=>$this->id_query));
+			$result .= CHtml::link(CHtml::button("Принять"), array('/query/recive', 'query'=>$this->id_query));
 		}
 		
 		return $result;

@@ -2,5 +2,5 @@
 return array (
   'template' => 'default',
   'baseClass' => 'Controller',
-  'actions' => 'index message approve',
+  'actions' => 'index gettingList recivingList view',
 );

@@ -27,7 +27,5 @@ if (!Yii::app()->user->isGuest) {
 	$this->widget('application.components.MyRequestsWidget');
 	
 	$this->widget('application.components.MyBooksWidget');
-	
-	$this->widget('application.components.GettingQueryListWidget');
 }
 ?>

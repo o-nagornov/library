@@ -34,6 +34,7 @@
 				array('label'=>'Поиск книг', 'url'=>array('/book'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Мои книги', 'url'=>array('/query/books'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Мои рекомендации', 'url'=>array('/recommendation'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Управление заявками', 'url'=>array('/queryManager'), 'visible'=>Yii::app()->user->isAdmin()),
 				array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),
 				array('label'=>'Авторизироваться', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

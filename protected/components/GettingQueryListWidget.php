@@ -2,6 +2,8 @@
 
 class GettingQueryListWidget extends CWidget {
 	
+	public $limit = -1;
+	
 	public function run() {
 
 		$model=new Query('search');
@@ -12,6 +14,7 @@ class GettingQueryListWidget extends CWidget {
 
 		$this->render('queryList',array(
 			'model'=>$model,
+			'limit'=>$this->limit,
 		));
 	}
 }
