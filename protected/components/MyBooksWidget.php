@@ -9,8 +9,8 @@ class MyBooksWidget extends CWidget
 	    $criteria = new CDbCriteria();
 		$criteria->with = array('user', 'book');
 		
-		$criteria->addSearchCondition('user_id', Yii::app()->user->id, true, 'AND', 'LIKE');
-		$criteria->addSearchCondition('status', 'given', true, 'AND', 'LIKE');
+		$criteria->addCondition('user_id='.Yii::app()->user->id);
+		$criteria->addCondition("status='given'");
 		$criteria->order = 'id_query DESC';
 		$criteria->limit = $this->limit;
 		

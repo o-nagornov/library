@@ -9,8 +9,8 @@ class MyRequestsWidget extends CWidget
 	    $criteria = new CDbCriteria();
 		$criteria->with = array('user', 'book');
 		
-		$criteria->addSearchCondition('user_id', Yii::app()->user->id, true, 'AND', 'LIKE');
-		$criteria->addSearchCondition('status', 'new', true, 'AND', 'LIKE');
+		$criteria->addCondition('user_id='.Yii::app()->user->id);
+		$criteria->addCondition("status='new'");
 		$criteria->order = 'id_query DESC';
 		$criteria->limit = $this->limit;
 		

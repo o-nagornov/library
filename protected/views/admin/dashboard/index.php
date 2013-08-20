@@ -5,8 +5,7 @@ $this->breadcrumbs=array(
 	'Администрирование',
 );
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
-<h2>DashBoard</h2>
+
 <p>
 	<?php
 	$this->widget('zii.widgets.CMenu', array(

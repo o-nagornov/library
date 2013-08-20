@@ -23,7 +23,7 @@ class RecommendationController extends Controller
 		
 		$criteria->together = true;
 		
-		$criteria->addSearchCondition('target_user_id', Yii::app()->user->id, true, 'AND', 'LIKE');
+		$criteria->addCondition('target_user_id='.Yii::app()->user->id);
 		
 		$dataProvider = new CActiveDataProvider('Recommendation', array('criteria' => $criteria));
 	    $this->render('index', array(

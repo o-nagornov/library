@@ -10,7 +10,7 @@ class QueryController extends Controller
 		
 		$criteria->together = true;
 		
-		$criteria->addSearchCondition('user_id', Yii::app()->user->id, true, 'AND', 'LIKE');
+		$criteria->addCondition('user_id='.Yii::app()->user->id);
 		
 		if (strlen($title) > 0)
 		{
