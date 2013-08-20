@@ -64,7 +64,7 @@ a:visited {
   display: block;
   width: 100%;
   color: #595353;
-  font-size: 19px;
+  font-size: 1.0em;
   font-family: Tahoma;
    padding: 3px 0px;
  }
@@ -83,7 +83,7 @@ a:visited {
   background-color: #eae9e9;
   border-bottom: 2px solid #b6b2b2;
   text-align: center;
-  font-size: 11px;
+  font-size: 0.95em;
   height: 60px; 
   width:100%;
   position: absolute;
@@ -148,6 +148,7 @@ a:visited {
   left:20px;
   top:10px;
 }
+
 .books img{
   height: 185px;
 }
@@ -155,4 +156,8 @@ a:visited {
 .bookaction form,
 .bookadmin form {
   margin:0;
+}
+div span.required
+{
+	color: red;
 }

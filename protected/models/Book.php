@@ -34,6 +34,7 @@ class Book extends CActiveRecord
 	 * @return array validation rules for model attributes.
 	 */
 	
+	
 	protected $authorsArray;
 	protected $typesArray;
 	protected $keywordsArray;

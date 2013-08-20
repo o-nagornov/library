@@ -4,9 +4,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$dataProvider,
 	'columns'=>array(
 		array(
-			'header' => 'ФИО',
+			'header' => 'Наиболее активные',
 			'value' => '$data->user->surname." ".$data->user->name." ".$data->user->parentname'
 			 ),
 	),
+	'summaryText'=>'',
+	'itemsCssClass'=>'',
 ));
 ?>

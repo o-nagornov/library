@@ -6,12 +6,16 @@
 		$this->widget('zii.widgets.CListView', array(
 			'dataProvider'=>$dataProvider,	
 			'itemView'=>'newRequests_view',
-			'sortableAttributes'=>array(
-				'id'=>'cronologico',
-				'transaction'
-			),
+			'itemsTagName'=>'ul',
+			'tagName'=>'span',
+			'itemsCssClass'=>'books unstyled',
 			'id'=>'ajaxListView',
-		));	
+			'htmlOptions'=>array('class'=>'books unstyled'),
+			'summaryText'=>'',
+			'sorterHeader'=>'',
+			'sorterFooter'=>'',
+			'sortableAttributes'=>'',
+		));
 	}
 	
 ?>
