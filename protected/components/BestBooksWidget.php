@@ -13,7 +13,10 @@ class BestBooksWidget extends CWidget
 		$criteria->order = '`item_count` DESC';
 		$criteria->limit = $this->limit;
 		
-		$dataProvider = new CActiveDataProvider('Query', array('criteria' => $criteria));
+		$dataProvider = new CActiveDataProvider('Query', array(
+			'criteria' => $criteria,
+			'pagination'=> false,
+		));
 	    $this->render('bestBooksWidget', array(
 									 'dataProvider' => $dataProvider,
 									 ));

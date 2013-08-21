@@ -21,8 +21,8 @@
 <dl class="dl-horizontal">
 	<dt>Автор</dt><dd> <?php echo CHtml::encode($data->user->surname)." ".CHtml::encode($data->user->name)." ".CHtml::encode($data->user->parentname); ?> </dd>
 	<dt>Мнение</dt><dd> <?php echo CHtml::encode($data->reason); ?> </dd>
-
 </dl>
+	<?php echo CHtml::link('Убрать рекомендацию', array('/recommendation/remove', 'id'=>$data->id_recommendation)); ?> 
 
 <?php
 	$this->widget('application.components.BookStatusWidget', array('book'=>$data->book));

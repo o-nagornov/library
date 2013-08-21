@@ -30,7 +30,12 @@
 				echo "Вы первый в очереди!";
 				break;
 			case 'queue':
-				echo "Вы в очереди, до Вас: $beforeCount";
+				if ($beforeCount != 0)
+				{
+					echo "Вы в очереди, до Вас: $beforeCount";
+				} else {
+					echo "Вы первый в очереди!";
+				}
 				break;
 		}
 	}

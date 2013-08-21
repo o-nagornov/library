@@ -41,7 +41,7 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 
-	<div class="content">
+	<div class="content well-large">
 		<?php echo $content; ?>
 	</div>
 

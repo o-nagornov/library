@@ -35,7 +35,12 @@ class BookController extends Controller
 			$criteria->addSearchCondition('year', $year, true, 'AND', 'LIKE');
 		}
 
-	    $dataProvider = new CActiveDataProvider('Book', array('criteria' => $criteria));
+	    $dataProvider = new CActiveDataProvider('Book', array(
+			'criteria' => $criteria,
+			'pagination'=>array(
+				'pageSize'=>10,
+			),
+		));
 	    $this->render('index', array(
 									 'dataProvider' => $dataProvider,
 									 ));

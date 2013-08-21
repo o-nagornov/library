@@ -1,4 +1,3 @@
-<h3>Самые читаемые книги:</h3>
 <?php
 
 	if ($dataProvider->totalItemCount == 0)

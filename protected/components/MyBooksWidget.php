@@ -14,7 +14,10 @@ class MyBooksWidget extends CWidget
 		$criteria->order = 'id_query DESC';
 		$criteria->limit = $this->limit;
 		
-		$dataProvider = new CActiveDataProvider('Query', array('criteria' => $criteria));
+		$dataProvider = new CActiveDataProvider('Query', array(
+			'criteria' => $criteria,
+			'pagination'=> false,
+		));
 	    $this->render('myBooksWidget', array(
 									 'dataProvider' => $dataProvider,
 									 ));

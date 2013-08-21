@@ -84,6 +84,15 @@ if ($dataProvider->totalItemCount == 0)
 		'sorterHeader'=>'',
 		'sorterFooter'=>'',
 		'sortableAttributes'=>'',
+		'cssFile'=>false,
+		'pager'=>array(
+			//'cssFile'=>false,
+			'header'=>'Перейти на страницу:',
+			'firstPageLabel'=>'На первую',
+			'lastPageLabel'=>'На последнюю',
+			'nextPageLabel'=>'На следующую',
+			'prevPageLabel'=>'На предыдущую',
+		),
 	));	
 }
 

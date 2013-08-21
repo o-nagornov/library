@@ -105,7 +105,9 @@ a:visited {
   background-color: #eae9e9;
   padding: 20px;
   }
- 
+.registration {
+  padding: 20px;
+  } 
 .userinfo {
   padding: 20px;
 }
@@ -160,4 +162,20 @@ a:visited {
 div span.required
 {
 	color: red;
+}
+
+div.pager
+{
+	
+}
+div.pager ul
+{
+		
+}
+div.pager li
+{
+	display: inline;
+	min-height: 0px;
+	padding-left: 0px;
+	background-color: #FFFFFF;
 }
