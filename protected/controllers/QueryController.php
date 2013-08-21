@@ -3,6 +3,30 @@
 class QueryController extends Controller
 {
 	
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+	
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','books','abadon','request'),
+				'roles'=>array('user'),
+			),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('give','recive','cancel','debit','credit'),
+				'roles'=>array('admin'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+	
 	public function actionIndex($title='', $name='')
 	{
 	    $criteria = new CDbCriteria();
