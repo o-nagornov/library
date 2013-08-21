@@ -51,7 +51,7 @@ $types += CHtml::listData(Type::model()->findAll(), 'id_type', 'type');
 				<div class="control-group">
 					<?php echo CHtml::label('Год издания', 'year', array('class'=>'control-label')); ?>
 					<div class="controls">		
-						<?php echo CHtml::textField('title', (isset($_GET['year'])) ? $_GET['year'] : '', array('id'=>'year')); ?>
+						<?php echo CHtml::textField('year', (isset($_GET['year'])) ? $_GET['year'] : '', array('id'=>'year')); ?>
 					</div>
 				</div>
 			</div>

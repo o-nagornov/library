@@ -46,7 +46,7 @@
 				<div class="control-group">
 					<?php echo CHtml::label('Год издания', 'year', array('class'=>'control-label')); ?>
 					<div class="controls">		
-						<?php echo CHtml::textField('title', (isset($_GET['year'])) ? $_GET['year'] : '', array('id'=>'year')); ?>
+						<?php echo CHtml::textField('year', (isset($_GET['year'])) ? $_GET['year'] : '', array('id'=>'year')); ?>
 					</div>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 			<div class="span4">
 				<div class="control-group">
 					<div class="controls">
-						<?php echo CHtml::submitButton('Искать!', array('name'=>'', 'class'=>'btn')); ?>
+						<?php echo CHtml::submitButton('Искать!', array('name'=>'submit', 'class'=>'btn')); ?>
 					</div>
 				</div>
 			</div>
