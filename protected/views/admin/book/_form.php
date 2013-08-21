@@ -67,15 +67,24 @@
 	</div>
 	
 	<div class="row">
-		<?php echo $form->checkBoxList($model, 'authorsArray', CHtml::listData(Author::model()->findAll(), 'id_author', 'name')); ?>
+		<?php echo $form->checkBoxList($model, 'authorsArray', CHtml::listData(Author::model()->findAll(), 'id_author', 'name'), array(
+			'template'=>'{label}{input}',
+			'separator'=>'',
+			)); ?>
 	</div>
 	
 	<div class="row">
-		<?php echo $form->checkBoxList($model, 'keywordsArray', CHtml::listData(Keyword::model()->findAll(), 'id_keyword', 'word')); ?>
+		<?php echo $form->checkBoxList($model, 'keywordsArray', CHtml::listData(Keyword::model()->findAll(), 'id_keyword', 'word'), array(
+			'template'=>'{label}{input}',
+			'separator'=>'',
+			)); ?>
 	</div>
 	
 	<div class="row">
-		<?php echo $form->checkBoxList($model, 'typesArray', CHtml::listData(Type::model()->findAll(), 'id_type', 'type')); ?>
+		<?php echo $form->checkBoxList($model, 'typesArray', CHtml::listData(Type::model()->findAll(), 'id_type', 'type'), array(
+			'template'=>'{label}{input}',
+			'separator'=>'',
+			)); ?>
 	</div>
 
 	<div class="row buttons">

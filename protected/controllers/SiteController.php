@@ -149,14 +149,15 @@ class SiteController extends Controller
 		//сбрасываем все существующие правила
 		$auth->clearAll();
 
-		$root = $auth->createRole('root');
-		$admin = $auth->createRole('admin');
-		$user = $auth->createRole('user');
-		
-		$admin->addChild('user');
-		$root->addChild('admin');
+		$role = $auth->createRole('user');
+		$role = $auth->createRole('admin');
+		$role->addChild('user');
+		$role = $auth->createRole('root');
+		$role->addChild('admin');
 		
 		$auth->assign('root', 1);
+		$auth->assign('admin', 2);
+		$auth->assign('user', 3);
 	 
 		//сохраняем роли и операции
 		$auth->save();

@@ -1,4 +1,4 @@
-<h5>
+<h6>
 <?php
 	switch ($status)
 	{
@@ -13,13 +13,12 @@
 			echo CHtml::link('Оставить заявку', array('query/request', 'id'=>$bookId));
 			break;
 		case 'download':
-			echo CHtml::link('Скачать', Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$filelink);
+			echo CHtml::link(CHtml::button('Скачать', array('class'=>'btn')), Yii::app()->controller->assetsBase.DIRECTORY_SEPARATOR.$filelink);
 			break;
 	}
 ?>
-
 <?php
-	if ($status != 'download')
+	/*if ($status != 'download')
 	{
 		switch ($queueStatus)
 		{
@@ -38,9 +37,9 @@
 				}
 				break;
 		}
-	}
+	}*/
 ?>
-
+<br />
 <?php
 	if ($status != 'download')
 	{

@@ -212,8 +212,9 @@ class Query extends CActiveRecord
 			$result .= CHtml::beginForm(CHtml::normalizeUrl(array('/query/cancel')), 'get', array('id'=>'cancel-form'))
 					.CHtml::hiddenField('query', $this->id_query, array('id'=>'query_'.$this->id_query))
 					."<br />"
-					.CHtml::textField('text', '', array('id'=>'text_'.$this->id_query))
-					.CHtml::submitButton('Отменить', array('name'=>''))
+					.CHtml::textArea('text', '', array('id'=>'text_'.$this->id_query, 'placeholder'=>'Причина отказа'))
+					."<br />"
+					.CHtml::submitButton('Отменить', array('name'=>'', 'class'=>'btn'))
 					.CHtml::endForm();
 		}
 		else if ($this->status = 'given')

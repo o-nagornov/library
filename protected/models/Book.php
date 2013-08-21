@@ -90,6 +90,7 @@ class Book extends CActiveRecord
 		BookHasType::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
 		BookHasKeyword::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
 		
+		
 		if (is_array($this->authorsArray))
 		{
 			foreach ($this->authorsArray as $authorId)
@@ -186,7 +187,7 @@ class Book extends CActiveRecord
             $this->deleteDocument($this->file_link);
 			
 			$this->file_link = $document;
-            $this->file_link->saveAs(Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$this->md5(file_link));			
+            $this->file_link->saveAs(Yii::getPathOfAlias('webroot.data').DIRECTORY_SEPARATOR.$this->file_link);			
         }
 		
 		if (($this->scenario=='insert' || $this->scenario=='update') && ($document=CUploadedFile::getInstance($this,'image_link'))) {

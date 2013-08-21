@@ -107,7 +107,7 @@ INSERT INTO tbl_keyword VALUES (39, 'сети ЭВМ');
 
 
 
-INSERT INTO tbl_book VALUES (1, 'Популярные цифровые ИС', 'справочник по микросхемам', 1, 1, NULL, 1987, NULL);
+INSERT INTO tbl_book VALUES (1, 'Популярные цифровые ИС', 'справочник по микросхемам', 1, 1, 'schema.pdf', 1987, '590ba.jpg');
 INSERT INTO tbl_book VALUES (2, 'Design Patterns', 'справочник по ООП', 1, 2, NULL, 1994, NULL);
 INSERT INTO tbl_book VALUES (3, 'Финансовый учет', 'справочник по финансам', 1, 2, NULL, 2010, NULL);
 INSERT INTO tbl_book VALUES (4, 'Бизнес-планирование', 'пособие по менеджементу', 1, 2, NULL, 2012, NULL);

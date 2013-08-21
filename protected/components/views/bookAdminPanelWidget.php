@@ -36,9 +36,9 @@
 <h5>Управление</h5>
 <div class="row-fluid">
 	<div class="span6">
-		<?php echo CHtml::link(CHtml::button("Добавить", array('class'=>'btn btn-block')), array('/query/credit', 'book'=>$book->id_book)); ?>
+		<?php echo CHtml::link(CHtml::button("Добавить", array('class'=>'btn btn-block')), array('/query/credit', 'book'=>$book->id_book), array('confirm'=>'Добавить книгу "'.$book->title.'"?')); ?>
 	</div>
 	<div class="span6">
-		<?php echo CHtml::link(CHtml::button("Списать", array('class'=>'btn btn-block')), array('/query/debit', 'book'=>$book->id_book));  ?>
+		<?php echo CHtml::link(CHtml::button("Списать", array('class'=>'btn btn-block')), array('/query/debit', 'book'=>$book->id_book), array('confirm'=>'Списать книгу "'.$book->title.'"?')); ?>
 	</div>
 </div>
