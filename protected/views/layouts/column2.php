@@ -1,4 +1,15 @@
-<?php /* @var $this Controller */ ?>
+<?php /* @var $this Controller */
+Yii::app()->clientScript->registerCssFile(
+    Yii::app()->assetManager->publish(
+        Yii::getPathOfAlias('webroot.css').'/main.css'
+    )
+);
+Yii::app()->clientScript->registerCssFile(
+    Yii::app()->assetManager->publish(
+        Yii::getPathOfAlias('webroot.css').'/form.css'
+    )
+);
+?>
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="span-19">
 	<div id="content">
