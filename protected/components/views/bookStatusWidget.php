@@ -41,7 +41,7 @@
 ?>
 <br />
 <?php
-	if ($status != 'download')
+	if ($status != 'download' && $status != 'given')
 	{
 		switch ($gettindStatus)
 		{
