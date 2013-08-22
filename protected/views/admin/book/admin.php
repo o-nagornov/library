@@ -47,14 +47,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id_book',
 		'title',
-		'description',
 		'current_count',
 		'total_count',
 		'file_link',
-		/*
 		'year',
 		'image_link',
-		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

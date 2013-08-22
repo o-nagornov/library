@@ -12,11 +12,11 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
 	<?php echo CHtml::encode($data->title); ?>
 	<br />
-
+<!--
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
-
+-->
 	<b><?php echo CHtml::encode($data->getAttributeLabel('current_count')); ?>:</b>
 	<?php echo CHtml::encode($data->current_count); ?>
 	<br />
@@ -33,11 +33,8 @@
 	<?php echo CHtml::encode($data->year); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image_link')); ?>:</b>
 	<?php echo CHtml::encode($data->image_link); ?>
 	<br />
-
-	*/ ?>
 
 </div>
