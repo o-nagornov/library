@@ -52,7 +52,8 @@
 						array('label'=>'Управление заявками', 'url'=>array('/queryManager'), 'visible'=>Yii::app()->user->isAdmin()),
 						array('label'=>'Cписок возврата', 'url'=>array('/queryManager/recivingList'), 'visible'=>Yii::app()->user->isAdmin()),
 						array('label'=>'Список выдачи', 'url'=>array('/queryManager/gettingList'), 'visible'=>Yii::app()->user->isAdmin()),
-						array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isAdmin()),
+						array('label'=>'Добавить книгу', 'url'=>array('/adminBook/create'), 'visible'=>Yii::app()->user->isAdmin()),
+						array('label'=>'Администрирование', 'url'=>array('/admin/dashboard'), 'visible'=>Yii::app()->user->isRoot()),
 					),
 				));
 			?>

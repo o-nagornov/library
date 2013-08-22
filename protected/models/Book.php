@@ -39,6 +39,10 @@ class Book extends CActiveRecord
 	protected $typesArray;
 	protected $keywordsArray;
 	
+	protected $authorsString;
+	protected $typesString;
+	protected $keywordsString;
+	
 	public function getAuthorsArray()
 	{
 		if ($this->authorsArray == null)
@@ -86,41 +90,182 @@ class Book extends CActiveRecord
 	
 	protected function afterSave()
 	{
-		BookHasAuthor::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
-		BookHasType::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
-		BookHasKeyword::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+		$this->createRelationsFromStrings();
+		$this->createRelationsFromArrays();
+	}
+	
+	private function createRelationsFromStrings()
+	{
+		if (strlen($this->authorsString) > 0)
+		{
+			BookHasAuthor::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+			
+			$authors = $this->parceString($this->authorsString);
+			foreach ($authors as $author)
+			{
+				if (!$author)
+				{
+					continue;
+				}
+				
+				$author = trim($author);
+				
+				if (strlen($author) == 0)
+				{
+					continue;
+				}
+				
+				$authorModel = Author::model()->find('name=:name', array(':name' => $author));
+				
+				if (!$authorModel)
+				{
+					$authorModel = new Author();
+					$authorModel->name = $author;
+					$authorModel->save();
+				}
+				
+				$relation = new BookHasAuthor();
+				$relation->book_id = $this->id_book;
+				$relation->author_id = $authorModel->id_author;
+				$relation->save();
+			}
+		}
 		
+		if (strlen($this->typesString) > 0)
+		{
+			BookHasType::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+			$types = $this->parceString($this->typesString);
+			
+			foreach ($types as $type)
+			{
+				if (!$type)
+				{
+					continue;
+				}
+				
+				$type = trim($type);
+				
+				if (strlen($type) == 0)
+				{
+					continue;
+				}
+				
+				$typeModel = Type::model()->find('type LIKE :type', array(':type' => $type));
+				
+				if (!$typeModel)
+				{
+					$typeModel = new Type();
+					$typeModel->type = $type;
+					$typeModel->save();
+				} else if (levenshtein($typeModel->type, $type) > 2)
+				{
+					$typeModel = new Type();
+					$typeModel->type = $type;
+					$typeModel->save();
+				}
+				
+				$relation = new BookHasType();
+				$relation->book_id = $this->id_book;
+				$relation->type_id = $typeModel->id_type;
+				$relation->save();
+				
+				
+			}
+		}
 		
+		if (strlen($this->keywordsString) > 0)
+		{
+			BookHasKeyword::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+			$keywords = $this->parceString($this->keywordsString);
+			
+			foreach ($keywords as $keyword)
+			{
+				if (!$keyword)
+				{
+					continue;
+				}
+				
+				$keyword = trim($keyword);
+				
+				if (strlen($keyword) == 0)
+				{
+					continue;
+				}
+				
+				$keywordModel = Keyword::model()->find('word LIKE :word', array(':word' => $keyword));
+				
+				if (!$keywordModel)
+				{
+					$keywordModel = new Keyword();
+					$keywordModel->word = $keyword;
+					$keywordModel->save();
+				} else if (levenshtein($keywordModel->word, $keyword) > 2)
+				{
+					$keywordModel = new Keyword();
+					$keywordModel->word = $keyword;
+					$keywordModel->save();
+				}
+				
+				$relation = new BookHasKeyword();
+				$relation->book_id = $this->id_book;
+				$relation->keyword_id = $keywordModel->id_keyword;
+				$relation->save();
+			}
+		}
+	}
+	
+	private function parceString($string)
+	{
+		$string = trim($string);
+		$string = preg_replace("/[ ]{1,}/", " ", $string);
+		$strings = preg_split("/[,;]/", $string);
+		return $strings;
+	}
+	
+	private function createRelationsFromArrays()
+	{
 		if (is_array($this->authorsArray))
 		{
-			foreach ($this->authorsArray as $authorId)
+			if (sizeof($this->authorsArray) > 0)
 			{
-				$relation = new BookHasAuthor();
-				$relation->author_id = $authorId;
-				$relation->book_id = $this->id_book;
-				$relation->save();
+				BookHasAuthor::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+				foreach ($this->authorsArray as $authorId)
+				{
+					$relation = new BookHasAuthor();
+					$relation->author_id = $authorId;
+					$relation->book_id = $this->id_book;
+					$relation->save();
+				}
 			}
 		}
 		
 		if (is_array($this->typesArray))
 		{
-			foreach ($this->typesArray as $typeId)
+			if (sizeof($this->typesArray) > 0)
 			{
-				$relation = new BookHasType();
-				$relation->type_id = $typeId;
-				$relation->book_id = $this->id_book;
-				$relation->save();
+				BookHasType::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+				foreach ($this->typesArray as $typeId)
+				{
+					$relation = new BookHasType();
+					$relation->type_id = $typeId;
+					$relation->book_id = $this->id_book;
+					$relation->save();
+				}
 			}
 		}
 		
 		if (is_array($this->keywordsArray))
 		{
-			foreach ($this->keywordsArray as $keywordId)
+			if (sizeof($this->keywordsArray) > 0)
 			{
-				$relation = new BookHasKeyword();
-				$relation->keyword_id = $keywordId;
-				$relation->book_id = $this->id_book;
-				$relation->save();
+				BookHasKeyword::model()->deleteAll("book_id=:book_id", array(':book_id'=>$this->id_book));
+				foreach ($this->keywordsArray as $keywordId)
+				{
+					$relation = new BookHasKeyword();
+					$relation->keyword_id = $keywordId;
+					$relation->book_id = $this->id_book;
+					$relation->save();
+				}
 			}
 		}
 	}
@@ -130,6 +275,7 @@ class Book extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('title', 'required'),
 			array('current_count, total_count, year', 'numerical', 'integerOnly'=>true),
 			array('title, file_link, image_link', 'length', 'max'=>45),
 			array('description', 'safe'),
@@ -141,6 +287,9 @@ class Book extends CActiveRecord
 			array('authorsArray', 'safe'),
 			array('typesArray', 'safe'),
 			array('keywordsArray', 'safe'),
+			array('authorsString', 'safe'),
+			array('typesString', 'safe'),
+			array('keywordsString', 'safe')
 		);
 	}
 
@@ -166,14 +315,17 @@ class Book extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_book' => 'Id Book',
-			'title' => 'Title',
-			'description' => 'Description',
-			'current_count' => 'Current Count',
-			'total_count' => 'Total Count',
-			'file_link' => 'File Link',
-			'year' => 'Year',
-			'image_link' => 'Image Link',
+			'id_book' => 'Идентификатор книги',
+			'title' => 'Название',
+			'description' => 'Описание',
+			'current_count' => 'Количество в наличии',
+			'total_count' => 'Общее количество',
+			'file_link' => 'Ссылка на файл (для электронных)',
+			'year' => 'Год издания',
+			'image_link' => 'Ссылка на изображение',
+			'authorsString' => 'Авторы (разделитель - "," или ";")',
+			'typesString' => 'Категории (разделитель - "," или ";")',
+			'keywordsString' => 'Ключевые слова (разделитель - "," или ";")',
 		);
 	}
 
@@ -261,6 +413,21 @@ class Book extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	public function setAuthorsString($value)
+	{
+		$this->authorsString = $value;
+	}
+	
+	public function setTypesStirng($value)
+	{
+		$this->typesString = $value;
+	}
+	
+	public function setKeywordsString($value)
+	{
+		$this->keywordsString = $value;
 	}
 	
 	public function getAuthorsString()

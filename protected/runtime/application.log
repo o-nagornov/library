@@ -8025,3 +8025,628 @@ in /var/www/library/index.php (13)
 2013/08/22 18:20:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`library`.`tbl_recommendation`, CONSTRAINT `fk_Recommenadation_User1` FOREIGN KEY (`target_user_id`) REFERENCES `tbl_user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_recommendation` (`book_id`, `target_user_id`, `reason`, `user_id`) VALUES (:yp0, :yp1, :yp2, :yp3).
 in /var/www/library/protected/controllers/RecommendationController.php (34)
 in /var/www/library/index.php (13)
+2013/08/22 19:41:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/library/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/library/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/library/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('adminBook/admin')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php/adminBook/admin
+HTTP_REFERER=http://localhost/library/index.php/adminBook/create
+---
+2013/08/22 21:22:21 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 21:22:21 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 21:22:21 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 21:22:21 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 21:22:21 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 21:22:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /var/www/library/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(270): CController->missingAction('view')
+#1 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('adminBook/view')
+#3 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/library/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/library/index.php/adminBook/1
+HTTP_REFERER=http://localhost/library/index.php/adminBook/update/1
+---
+2013/08/22 22:04:50 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:04:50 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:04:50 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:04:50 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:04:50 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:02 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:02 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:02 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:02 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:02 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:14 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:14 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:14 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:14 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:14 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:35 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:35 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:35 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:35 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:05:35 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:06:35 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:06:35 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:06:35 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:06:35 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:06:35 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:10 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:10 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:10 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:10 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:10 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:15 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:15 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:15 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:15 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:07:15 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:30 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:30 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:30 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:30 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:30 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:56 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:56 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:56 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:56 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:08:56 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:03 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:03 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:03 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:03 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:03 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:11 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:11 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:11 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:11 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:11 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:35 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:35 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:35 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:35 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:35 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:53 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:53 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:53 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:53 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:09:53 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:10:57 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:10:57 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:10:57 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:10:57 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:10:57 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:19 [warning] [application] Failed to set unsafe attribute "authorsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:19 [warning] [application] Failed to set unsafe attribute "typesString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:19 [warning] [application] Failed to set unsafe attribute "keywordsString" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:19 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:19 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:50 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:11:50 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:12:44 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:12:44 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:25 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:25 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:26 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:26 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:34 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:34 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:55 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:13:55 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:45 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:45 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:46 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:46 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:47 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:47 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:48 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:14:48 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:15:13 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:15:13 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:15:13 [error] [php] preg_replace() expects at least 3 parameters, 2 given (/var/www/library/protected/models/Book.php:220)
+Stack trace:
+#0 /var/www/library/protected/models/Book.php(93): Book->createRelationsFromStrings()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1126): Book->afterSave()
+#2 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): Book->update()
+#3 /var/www/library/protected/controllers/AdminBookController.php(76): Book->save()
+#4 unknown(0): AdminBookController->actionUpdate()
+#5 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#6 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#9 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#12 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#15 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#16 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/2
+in /var/www/library/protected/models/Book.php (220)
+in /var/www/library/protected/models/Book.php (105)
+in /var/www/library/protected/models/Book.php (93)
+2013/08/22 22:16:09 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:09 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:09 [error] [php] preg_replace(): Unknown modifier 'g' (/var/www/library/protected/models/Book.php:220)
+Stack trace:
+#0 /var/www/library/protected/models/Book.php(93): Book->createRelationsFromStrings()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1126): Book->afterSave()
+#2 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): Book->update()
+#3 /var/www/library/protected/controllers/AdminBookController.php(76): Book->save()
+#4 unknown(0): AdminBookController->actionUpdate()
+#5 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#6 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#9 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#12 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#15 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#16 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/2
+in /var/www/library/protected/models/Book.php (220)
+in /var/www/library/protected/models/Book.php (105)
+in /var/www/library/protected/models/Book.php (93)
+2013/08/22 22:16:17 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:17 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:17 [error] [php] Undefined variable: strins (/var/www/library/protected/models/Book.php:223)
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1126): Book->afterSave()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): Book->update()
+#2 /var/www/library/protected/controllers/AdminBookController.php(76): Book->save()
+#3 unknown(0): AdminBookController->actionUpdate()
+#4 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#8 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#11 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#14 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#15 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/2
+in /var/www/library/protected/models/Book.php (223)
+in /var/www/library/protected/models/Book.php (105)
+in /var/www/library/protected/models/Book.php (93)
+2013/08/22 22:16:26 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:26 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:26 [error] [php] Array to string conversion (/var/www/library/protected/models/Book.php:223)
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1126): Book->afterSave()
+#1 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): Book->update()
+#2 /var/www/library/protected/controllers/AdminBookController.php(76): Book->save()
+#3 unknown(0): AdminBookController->actionUpdate()
+#4 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#8 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#11 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#14 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#15 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/2
+in /var/www/library/protected/models/Book.php (223)
+in /var/www/library/protected/models/Book.php (105)
+in /var/www/library/protected/models/Book.php (93)
+2013/08/22 22:16:39 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:16:39 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:03 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:03 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:16 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:16 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:38 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:38 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:59 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:17:59 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:19:49 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:19:49 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:19:49 [error] [php] Undefined variable: typemodel (/var/www/library/protected/models/Book.php:159)
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): Book->update()
+#1 /var/www/library/protected/controllers/AdminBookController.php(76): Book->save()
+#2 unknown(0): AdminBookController->actionUpdate()
+#3 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#4 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#5 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#7 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#9 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#10 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#11 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#13 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#14 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/2
+in /var/www/library/protected/models/Book.php (159)
+in /var/www/library/protected/models/Book.php (93)
+in /var/www/library/protected/controllers/AdminBookController.php (76)
+2013/08/22 22:20:23 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:20:23 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:20:23 [error] [php] include(KeyWord.php): failed to open stream: No such file or directory (/var/www/library/yii/framework/YiiBase.php:427)
+Stack trace:
+#0 /var/www/library/protected/models/Book.php(191): spl_autoload_call()
+#1 /var/www/library/protected/models/Book.php(93): Book->createRelationsFromStrings()
+#2 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1126): Book->afterSave()
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): Book->update()
+#4 /var/www/library/protected/controllers/AdminBookController.php(76): Book->save()
+#5 unknown(0): AdminBookController->actionUpdate()
+#6 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#7 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#8 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#10 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#13 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#16 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#17 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/2
+in /var/www/library/protected/models/Book.php (191)
+in /var/www/library/protected/models/Book.php (93)
+in /var/www/library/protected/controllers/AdminBookController.php (76)
+2013/08/22 22:21:06 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:21:06 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:21:06 [error] [exception.CException] exception 'CException' with message 'Property "BookHasAuthor.keyword_id" is not defined.' in /var/www/library/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/library/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('keyword_id', '1')
+#1 /var/www/library/protected/models/Book.php(207): CActiveRecord->__set('keyword_id', '1')
+#2 /var/www/library/protected/models/Book.php(93): Book->createRelationsFromStrings()
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1126): Book->afterSave()
+#4 /var/www/library/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->update(NULL)
+#5 /var/www/library/protected/controllers/AdminBookController.php(76): CActiveRecord->save()
+#6 [internal function]: AdminBookController->actionUpdate('2')
+#7 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AdminBookController), Array)
+#8 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AdminBookController), Object(ReflectionMethod), Array)
+#9 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#18 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('adminBook/updat...')
+#19 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /var/www/library/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/library/index.php/adminBook/update/2
+HTTP_REFERER=http://localhost/library/index.php/adminBook/update/2
+---
+2013/08/22 22:21:52 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:21:52 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:22:57 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:22:57 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:23:52 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:23:52 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:24:27 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:24:27 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:24:28 [error] [php] Cannot modify header information - headers already sent by (output started at /var/www/library/protected/models/Book.php:132) (/var/www/library/yii/framework/web/CHttpRequest.php:803)
+Stack trace:
+#0 /var/www/library/protected/controllers/AdminBookController.php(78): AdminBookController->redirect()
+#1 unknown(0): AdminBookController->actionUpdate()
+#2 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#3 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#4 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): AdminBookController->runAction()
+#6 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/library/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): AdminBookController->filterAccessControl()
+#9 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/library/yii/framework/web/CController.php(265): AdminBookController->runActionWithFilters()
+#12 /var/www/library/yii/framework/web/CWebApplication.php(282): AdminBookController->run()
+#13 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/adminBook/update/1
+in /var/www/library/protected/controllers/AdminBookController.php (78)
+in /var/www/library/index.php (13)
+2013/08/22 22:24:57 [warning] [application] Failed to set unsafe attribute "image_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
+2013/08/22 22:24:57 [warning] [application] Failed to set unsafe attribute "file_link" of "Book".
+in /var/www/library/protected/controllers/AdminBookController.php (75)
+in /var/www/library/index.php (13)
