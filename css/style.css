@@ -8,10 +8,10 @@
 
 .title {
   position:relative; 
-  height: 132px;
+  height: 50px;
   background-color: #23608f;
   color: #cfd0d4;
-  background: #23608f url(../img/header_title_bg.png) 0 0 no-repeat;
+  background: #23608f url(../img/background.png) 0 0 no-repeat;
   text-transform: uppercase;
   font-family: Tahoma;
 }
@@ -27,14 +27,16 @@ a:visited {
   position: absolute;
   font-size: 28px;
   left: 260px;
-  top: 32px;
+  top: 15px;
   }
 .corponame {
   color: #d8d9dd;
   position: absolute;
-  left: 277px;
-  font-size: 20px;
-  top: 83px;
+  background: url(../img/logo.png) 0 0 no-repeat;
+  left: 30px;
+  width: 160px;
+  height: 50px;
+  top: 2px;
 }
 /* Content */
 .content {
@@ -84,7 +86,7 @@ a:visited {
   border-bottom: 2px solid #b6b2b2;
   text-align: center;
   font-size: 0.95em;
-  height: 60px; 
+  height: 40px; 
   width:100%;
   position: absolute;
   bottom: 0;

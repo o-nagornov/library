@@ -15,7 +15,7 @@
 	<div class="header">
 		<div class="title">
 			<div class="sitename"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-			<div class="corponame">Александровский банк</div>
+			<div class="corponame">&nbsp;</div>
 		</div>
 		<div class="navigation">
 			<?php
@@ -64,8 +64,7 @@
 			?>
 
 		
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by IT Company.All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 </div><!-- page -->
