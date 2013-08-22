@@ -64,7 +64,7 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_user' => 'Id User',
+			'id_user' => 'Идентификатор',
 			'name' => 'Имя',
 			'surname' => 'Фамилия',
 			'parentname' => 'Отчество',

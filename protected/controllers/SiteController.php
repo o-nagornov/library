@@ -115,27 +115,4 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-	
-	public function actionInstall() {
- 
-		$auth=Yii::app()->authManager;
-		 
-		//сбрасываем все существующие правила
-		$auth->clearAll();
-
-		$role = $auth->createRole('user');
-		$role = $auth->createRole('admin');
-		$role->addChild('user');
-		$role = $auth->createRole('root');
-		$role->addChild('admin');
-		
-		$auth->assign('root', 1);
-		$auth->assign('admin', 2);
-		$auth->assign('user', 3);
-	 
-		//сохраняем роли и операции
-		$auth->save();
-		 
-		$this->render('index');
-	}
 }

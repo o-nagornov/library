@@ -50,8 +50,8 @@ class BookHasType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'book_id' => 'Book',
-			'type_id' => 'Type',
+			'book_id' => 'Идентификатор книги',
+			'type_id' => 'Идентификатор категории',
 		);
 	}
 

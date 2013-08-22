@@ -54,8 +54,8 @@ class Keyword extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_keyword' => 'Id Keyword',
-			'word' => 'Word',
+			'id_keyword' => 'Идентификатор',
+			'word' => 'Слово',
 		);
 	}
 

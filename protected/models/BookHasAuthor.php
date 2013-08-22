@@ -50,8 +50,8 @@ class BookHasAuthor extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'book_id' => 'Book',
-			'author_id' => 'Author',
+			'book_id' => 'Идентификатор книги',
+			'author_id' => 'Идентификатор автора',
 		);
 	}
 

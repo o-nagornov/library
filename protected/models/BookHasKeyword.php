@@ -50,8 +50,8 @@ class BookHasKeyword extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'book_id' => 'Book',
-			'keyword_id' => 'Keyword',
+			'book_id' => 'Идентификатор книги',
+			'keyword_id' => 'Идентификатор слова',
 		);
 	}
 

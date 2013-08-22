@@ -67,12 +67,12 @@ class Query extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_query' => 'Id Query',
-			'creation_date' => 'Creation Date',
-			'status' => 'Status',
-			'book_id' => 'Book',
-			'user_id' => 'User',
-			'comment' => 'Comment',
+			'id_query' => 'Идентификатор',
+			'creation_date' => 'Дата создания',
+			'status' => 'Статус заявки',
+			'book_id' => 'Идентификатор книги',
+			'user_id' => 'Идентификатор пользователя',
+			'comment' => 'Комментарий',
 		);
 	}
 

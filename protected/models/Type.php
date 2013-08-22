@@ -53,8 +53,8 @@ class Type extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_type' => 'Id Type',
-			'type' => 'Type',
+			'id_type' => 'Идентификатор',
+			'type' => 'Категория',
 		);
 	}
 

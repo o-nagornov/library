@@ -62,11 +62,11 @@ class Recommendation extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_recommendation' => 'Id Recommendation',
-			'reason' => 'Reason',
-			'book_id' => 'Book',
-			'target_user_id' => 'Target User',
-			'user_id' => 'User',
+			'id_recommendation' => 'Идентификатор',
+			'reason' => 'Мнение',
+			'book_id' => 'Идентификатор книги',
+			'target_user_id' => 'Идентификатор целевого пользователя',
+			'user_id' => 'Идентификатор пользователя-автора',
 		);
 	}
 

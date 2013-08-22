@@ -53,8 +53,8 @@ class Author extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_author' => 'Id Author',
-			'name' => 'Name',
+			'id_author' => 'Идентификатор',
+			'name' => 'Фамилия, имя, инициалы',
 		);
 	}
 
