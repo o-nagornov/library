@@ -27,8 +27,7 @@ class BookController extends Controller
 	{
 	    $criteria = new CDbCriteria();
 		$criteria->with = array('authors', 'types', 'keywords');
-		
-		$criteria->together = true;
+
 		
 		if (strlen($title) > 0)
 		{
@@ -54,14 +53,14 @@ class BookController extends Controller
 		{
 			$criteria->addSearchCondition('year', $year, true, 'AND', 'LIKE');
 		}
-
+		
 	    $dataProvider = new CActiveDataProvider('Book', array(
 			'criteria' => $criteria,
 			'pagination'=>array(
-				'pageSize'=>10,
+				'pageSize'=>7,
 			),
 		));
-	    $this->render('index', array(
+		$this->render('index', array(
 									 'dataProvider' => $dataProvider,
 									 ));
 	}

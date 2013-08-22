@@ -32,8 +32,6 @@ class QueryController extends Controller
 	    $criteria = new CDbCriteria();
 		$criteria->with = array('user', 'book');
 		
-		$criteria->together = true;
-		
 		$criteria->addCondition('user_id='.Yii::app()->user->id);
 		
 		if (strlen($title) > 0)

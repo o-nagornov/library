@@ -48,9 +48,7 @@ class RecommendationController extends Controller
 	{
 		$criteria = new CDbCriteria();
 		$criteria->with = array('user', 'book');
-		
-		$criteria->together = true;
-		
+
 		$criteria->addCondition('target_user_id='.Yii::app()->user->id);
 		
 		$dataProvider = new CActiveDataProvider('Recommendation', array('criteria' => $criteria));
