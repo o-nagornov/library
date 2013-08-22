@@ -24,14 +24,22 @@ class RecommendationController extends Controller
 	
 	public function actionAdd($book, $targetuser, $reason)
 	{
-		$recommendation = new Recommendation();
-		$recommendation->book_id = $book;
-		$recommendation->target_user_id = $targetuser;
-		$recommendation->reason = $reason;
-		$recommendation->user_id = Yii::app()->user->id;
+		try {
+			$recommendation = new Recommendation();
+			$recommendation->book_id = $book;
+			$recommendation->target_user_id = $targetuser;
+			$recommendation->reason = $reason;
+			$recommendation->user_id = Yii::app()->user->id;
 		
-		$recommendation->save();
-		
+			$recommendation->save();
+		} catch (Exception $e) {
+			if (!($targetuser > 0))
+			{
+				Yii::app()->user->setFlash('error', 'Имя пользователя не может быть пустым, введите его');
+			} else {
+				Yii::app()->user->setFlash('error', 'Невозможно создать рекомендацию');
+			}
+		}
 		
 		$this->redirect(array('book/view', 'id' => $book));
 	}

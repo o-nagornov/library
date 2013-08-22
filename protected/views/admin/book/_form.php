@@ -67,23 +67,26 @@
 	</div>
 	
 	<div class="row">
+		<h5>Авторы</h5>
 		<?php echo $form->checkBoxList($model, 'authorsArray', CHtml::listData(Author::model()->findAll(), 'id_author', 'name'), array(
-			'template'=>'{label}{input}',
-			'separator'=>'',
+			'template'=>'{input}{label}',
+			'separator'=>'   |   ',
 			)); ?>
 	</div>
 	
 	<div class="row">
+		<h5>Ключевые слова</h5>
 		<?php echo $form->checkBoxList($model, 'keywordsArray', CHtml::listData(Keyword::model()->findAll(), 'id_keyword', 'word'), array(
-			'template'=>'{label}{input}',
-			'separator'=>'',
+			'template'=>'{input}{label}',
+			'separator'=>'   |   ',
 			)); ?>
 	</div>
 	
 	<div class="row">
+		<h5>Категории</h5>
 		<?php echo $form->checkBoxList($model, 'typesArray', CHtml::listData(Type::model()->findAll(), 'id_type', 'type'), array(
-			'template'=>'{label}{input}',
-			'separator'=>'',
+			'template'=>'{input}{label}',
+			'separator'=>'   |   ',
 			)); ?>
 	</div>
 

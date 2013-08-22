@@ -179,3 +179,7 @@ div.pager li
 	padding-left: 0px;
 	background-color: #FFFFFF;
 }
+div.row label
+{
+	display: inline-block;
+}
