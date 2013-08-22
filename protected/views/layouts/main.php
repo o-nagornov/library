@@ -45,6 +45,11 @@
 		<?php echo $content; ?>
 	</div>
 
+	<div class="content">
+		<div class="row">
+			<div class="span12"></div>
+		</div>
+	</div>
 	<div class="footer">
 			<?php
 				$this->widget('zii.widgets.CMenu',array(
@@ -63,7 +68,6 @@
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
-
 </div><!-- page -->
 <?php
 
