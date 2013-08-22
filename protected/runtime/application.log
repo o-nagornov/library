@@ -8965,3 +8965,88 @@ Stack trace:
 REQUEST_URI=/library/index.php/book
 HTTP_REFERER=http://92.252.128.43/library/index.php/query
 ---
+2013/08/23 00:34:44 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/library/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/library/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/library/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php/book
+HTTP_REFERER=http://localhost/library/index.php
+---
+2013/08/23 00:35:38 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/library/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/library/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/library/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php/book
+HTTP_REFERER=http://localhost/library/index.php
+---
+2013/08/23 00:36:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/library/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/library/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/library/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('query')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php/query
+HTTP_REFERER=http://localhost/library/index.php/book
+---
+2013/08/23 00:36:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/library/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/library/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/library/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('books')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('query/books')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php/query/books
+HTTP_REFERER=http://localhost/library/index.php/query
+---
+2013/08/23 00:36:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/library/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/library/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/library/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book')
+#9 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/library/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/library/index.php/book
+HTTP_REFERER=http://localhost/library/index.php/query/books
+---

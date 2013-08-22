@@ -38,7 +38,7 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		'authManager'=>array(
-			'class' => 'CPhpAuthManager',
+			'class' => 'PhpAuthManager',
 			'defaultRoles' => array('guest'),
 		),
 		// uncomment the following to enable URLs in path-format
