@@ -28,7 +28,9 @@ class BookController extends Controller
 	    $criteria = new CDbCriteria();
 		$criteria->with = array('authors', 'types', 'keywords');
 
-		
+		$criteria->together = true;
+		$criteria->group = 'id_book';
+	
 		if (strlen($title) > 0)
 		{
 			$criteria->addSearchCondition('title', $title, true, 'AND', 'LIKE');

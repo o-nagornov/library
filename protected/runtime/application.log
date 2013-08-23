@@ -9106,3 +9106,41 @@ Stack trace:
 REQUEST_URI=/library/index.php/book/index?title=&authors=&keywords=&type=1&description=&year=
 HTTP_REFERER=http://localhost/library/index.php/book
 ---
+2013/08/23 13:29:49 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_user' in 'group statement'. The SQL statement executed was: SELECT COUNT(*) FROM (SELECT `t`.`id_book` AS `t0_c0`, `t`.`title` AS `t0_c1`, `t`.`description` AS `t0_c2`, `t`.`current_count` AS `t0_c3`, `t`.`total_count` AS `t0_c4`, `t`.`file_link` AS `t0_c5`, `t`.`year` AS `t0_c6`, `t`.`image_link` AS `t0_c7`, `authors`.`id_author` AS `t1_c0`, `authors`.`name` AS `t1_c1`, `types`.`id_type` AS `t2_c0`, `types`.`type` AS `t2_c1`, `keywords`.`id_keyword` AS `t3_c0`, `keywords`.`word` AS `t3_c1` FROM `tbl_book` `t`  LEFT OUTER JOIN `tbl_book_has_author` `authors_authors` ON (`t`.`id_book`=`authors_authors`.`book_id`) LEFT OUTER JOIN `tbl_author` `authors` ON (`authors`.`id_author`=`authors_authors`.`author_id`)  LEFT OUTER JOIN `tbl_book_has_type` `types_types` ON (`t`.`id_book`=`types_types`.`book_id`) LEFT OUTER JOIN `tbl_type` `types` ON (`types`.`id_type`=`types_types`.`type_id`)  LEFT OUTER JOIN `tbl_book_has_keyword` `keywords_keywords` ON (`t`.`id_book`=`keywords_keywords`.`book_id`) LEFT OUTER JOIN `tbl_keyword` `keywords` ON (`keywords`.`id_keyword`=`keywords_keywords`.`keyword_id`)  WHERE (id_type LIKE :ycp0) GROUP BY id_user) sq.
+in /var/www/library/protected/views/book/index.php (71)
+in /var/www/library/protected/controllers/BookController.php (67)
+in /var/www/library/index.php (13)
+2013/08/23 13:29:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_user' in 'group statement'. The SQL statement executed was: SELECT COUNT(*) FROM (SELECT `t`.`id_book` AS `t0_c0`, `t`.`title` AS `t0_c1`, `t`.`description` AS `t0_c2`, `t`.`current_count` AS `t0_c3`, `t`.`total_count` AS `t0_c4`, `t`.`file_link` AS `t0_c5`, `t`.`year` AS `t0_c6`, `t`.`image_link` AS `t0_c7`, `authors`.`id_author` AS `t1_c0`, `authors`.`name` AS `t1_c1`, `types`.`id_type` AS `t2_c0`, `types`.`type` AS `t2_c1`, `keywords`.`id_keyword` AS `t3_c0`, `keywords`.`word` AS `t3_c1` FROM `tbl_book` `t`  LEFT OUTER JOIN `tbl_book_has_author` `authors_authors` ON (`t`.`id_book`=`authors_authors`.`book_id`) LEFT OUTER JOIN `tbl_author` `authors` ON (`authors`.`id_author`=`authors_authors`.`author_id`)  LEFT OUTER JOIN `tbl_book_has_type` `types_types` ON (`t`.`id_book`=`types_types`.`book_id`) LEFT OUTER JOIN `tbl_type` `types` ON (`types`.`id_type`=`types_types`.`type_id`)  LEFT OUTER JOIN `tbl_book_has_keyword` `keywords_keywords` ON (`t`.`id_book`=`keywords_keywords`.`book_id`) LEFT OUTER JOIN `tbl_keyword` `keywords` ON (`keywords`.`id_keyword`=`keywords_keywords`.`keyword_id`)  WHERE (id_type LIKE :ycp0) GROUP BY id_user) sq' in /var/www/library/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/library/yii/framework/db/CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/library/yii/framework/db/ar/CActiveFinder.php(740): CDbCommand->queryScalar()
+#2 /var/www/library/yii/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1605): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/library/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/library/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#6 /var/www/library/yii/framework/base/CComponent.php(111): CDataProvider->getTotalItemCount()
+#7 /var/www/library/protected/views/book/index.php(71): CComponent->__get('totalItemCount')
+#8 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#9 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#10 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#11 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#12 /var/www/library/protected/controllers/BookController.php(67): CController->render('index', Array)
+#13 [internal function]: BookController->actionIndex('', '', '', '1', '', '')
+#14 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#15 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#16 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#25 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book/index')
+#26 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/library/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/library/index.php/book/index?title=&authors=&keywords=&type=1&description=&year=
+HTTP_REFERER=http://localhost/library/index.php/book
+---
