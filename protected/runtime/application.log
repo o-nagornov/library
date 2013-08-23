@@ -9050,3 +9050,59 @@ Stack trace:
 REQUEST_URI=/library/index.php/book
 HTTP_REFERER=http://localhost/library/index.php/query/books
 ---
+2013/08/23 12:40:04 [error] [php] Undefined variable: email (/var/www/library/protected/controllers/RegistrationController.php:50)
+Stack trace:
+#0 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /var/www/library/yii/framework/web/CController.php(286): RegistrationController->runAction()
+#2 /var/www/library/yii/framework/web/CController.php(265): RegistrationController->runActionWithFilters()
+#3 /var/www/library/yii/framework/web/CWebApplication.php(282): RegistrationController->run()
+#4 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/library/index.php(13): CWebApplication->run()
+REQUEST_URI=/library/index.php/registration
+in /var/www/library/protected/controllers/RegistrationController.php (50)
+in /var/www/library/protected/controllers/RegistrationController.php (86)
+in /var/www/library/index.php (13)
+2013/08/23 12:54:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_type' in 'where clause'. The SQL statement executed was: SELECT `t`.`id_book` AS `t0_c0`, `t`.`title` AS `t0_c1`, `t`.`description` AS `t0_c2`, `t`.`current_count` AS `t0_c3`, `t`.`total_count` AS `t0_c4`, `t`.`file_link` AS `t0_c5`, `t`.`year` AS `t0_c6`, `t`.`image_link` AS `t0_c7` FROM `tbl_book` `t`  WHERE (id_type LIKE :ycp0) LIMIT 7.
+in /var/www/library/protected/views/book/index.php (96)
+in /var/www/library/protected/controllers/BookController.php (65)
+in /var/www/library/index.php (13)
+2013/08/23 12:54:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_type' in 'where clause'. The SQL statement executed was: SELECT `t`.`id_book` AS `t0_c0`, `t`.`title` AS `t0_c1`, `t`.`description` AS `t0_c2`, `t`.`current_count` AS `t0_c3`, `t`.`total_count` AS `t0_c4`, `t`.`file_link` AS `t0_c5`, `t`.`year` AS `t0_c6`, `t`.`image_link` AS `t0_c7` FROM `tbl_book` `t`  WHERE (id_type LIKE :ycp0) LIMIT 7' in /var/www/library/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/library/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/library/yii/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/library/yii/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/library/yii/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/library/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/library/yii/framework/web/CActiveDataProvider.php(199): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/library/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#8 /var/www/library/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#9 /var/www/library/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#10 /var/www/library/yii/framework/web/CBaseController.php(147): CListView->init()
+#11 /var/www/library/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#12 /var/www/library/protected/views/book/index.php(96): CBaseController->widget('zii.widgets.CLi...', Array)
+#13 /var/www/library/yii/framework/web/CBaseController.php(126): require('/var/www/librar...')
+#14 /var/www/library/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/librar...', Array, true)
+#15 /var/www/library/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/librar...', Array, true)
+#16 /var/www/library/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#17 /var/www/library/protected/controllers/BookController.php(65): CController->render('index', Array)
+#18 [internal function]: BookController->actionIndex('', '', '', '1', '', '')
+#19 /var/www/library/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(BookController), Array)
+#20 /var/www/library/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(BookController), Object(ReflectionMethod), Array)
+#21 /var/www/library/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/library/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#23 /var/www/library/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#24 /var/www/library/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#25 /var/www/library/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#26 /var/www/library/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#27 /var/www/library/yii/framework/web/CController.php(291): CFilterChain->run()
+#28 /var/www/library/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 /var/www/library/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#30 /var/www/library/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('book/index')
+#31 /var/www/library/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/library/index.php(13): CApplication->run()
+#33 {main}
+REQUEST_URI=/library/index.php/book/index?title=&authors=&keywords=&type=1&description=&year=
+HTTP_REFERER=http://localhost/library/index.php/book
+---

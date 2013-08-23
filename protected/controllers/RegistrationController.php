@@ -47,9 +47,27 @@ class RegistrationController extends Controller
 
 			try
 			{
+				if ($oldModel = User::model()->find('email=:email', array(':email'=>$model->email)))
+				{
+					if ($oldModel)
+					{
+						if ($oldModel->role == 'guest')
+						{
+							$oldModel->delete();
+						}
+					}
+				}
+				
 				if ($model->save())
 				{
-					$this->sendApprove($model);
+					if ($this->sendApprove($model) != 1)
+					{
+						Yii::app()->user->setFlash('error', 'Извините, невозможно отправить подтверждение. Попробуйте загеристироваться позже.');
+						$this->render('registration',array(
+							'model'=>$model,
+						));
+						return;
+					}
 					$this->redirect(array('/registration/message', 'email' => $model->email));	
 				}
 			}
@@ -100,8 +118,7 @@ class RegistrationController extends Controller
 		$mailer->Subject = 'Подтверждение регистрации';
 		$mailer->Body = "
 Для подтверждения регистрации, перейдите, пожалуйста, по ссылке:
-<a href='http://localhost/library/index.php?r=registration/approve&hash=$hash&email=$email'> подтвердить регистрацию </a>
-";
+<a href='http://cbas.p.ht/registration/approve/hash/$hash/email/$email/'>подтвердить регистрацию</a>";
 				
 		return $mailer->Send() . $mailer->ErrorInfo;
 	}
