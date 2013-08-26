@@ -118,7 +118,8 @@ class RegistrationController extends Controller
 		$mailer->Subject = 'Подтверждение регистрации';
 		$mailer->Body = "
 Для подтверждения регистрации, перейдите, пожалуйста, по ссылке:
-".CHtml::link('подтвердить регистрацию', array('/registration/approve', 'hash' => $hash, 'email'=> $email));
+<a href='".Yii::app()->request->hostInfo.Yii::app()->homeUrl."/registration/approve?hash=$hash&email=$email'>подтвердить регистрацию</a>";
+
 				
 		return $mailer->Send() . $mailer->ErrorInfo;
 	}
