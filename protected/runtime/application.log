@@ -9144,3 +9144,12 @@ Stack trace:
 REQUEST_URI=/library/index.php/book/index?title=&authors=&keywords=&type=1&description=&year=
 HTTP_REFERER=http://localhost/library/index.php/book
 ---
+2013/08/23 17:04:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`library`.`tbl_recommendation`, CONSTRAINT `fk_Recommenadation_User1` FOREIGN KEY (`target_user_id`) REFERENCES `tbl_user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_recommendation` (`book_id`, `target_user_id`, `reason`, `user_id`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/library/protected/controllers/RecommendationController.php (34)
+in /var/www/library/index.php (13)
+2013/08/23 17:05:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`library`.`tbl_recommendation`, CONSTRAINT `fk_Recommenadation_User1` FOREIGN KEY (`target_user_id`) REFERENCES `tbl_user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_recommendation` (`book_id`, `target_user_id`, `reason`, `user_id`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/library/protected/controllers/RecommendationController.php (34)
+in /var/www/library/index.php (13)
+2013/08/23 17:08:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`library`.`tbl_recommendation`, CONSTRAINT `fk_Recommenadation_User1` FOREIGN KEY (`target_user_id`) REFERENCES `tbl_user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_recommendation` (`book_id`, `target_user_id`, `reason`, `user_id`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/library/protected/controllers/RecommendationController.php (34)
+in /var/www/library/index.php (13)
