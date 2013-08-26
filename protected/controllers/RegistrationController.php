@@ -118,7 +118,7 @@ class RegistrationController extends Controller
 		$mailer->Subject = 'Подтверждение регистрации';
 		$mailer->Body = "
 Для подтверждения регистрации, перейдите, пожалуйста, по ссылке:
-<a href='http://cbas.p.ht/registration/approve/hash/$hash/email/$email/'>подтвердить регистрацию</a>";
+".CHtml::link('подтвердить регистрацию', array('/registration/approve', 'hash' => $hash, 'email'=> $email));
 				
 		return $mailer->Send() . $mailer->ErrorInfo;
 	}
