@@ -24,11 +24,20 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
+	'sadmin' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'Administrator',
+        'children' => array(
+            'admin',          // позволим модератору всё, что позволено пользователю
+        ),
+        'bizRule' => null,
+        'data' => null
+    ),
     'root' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Administrator',
         'children' => array(
-            'admin',         // позволим админу всё, что позволено модератору
+            'sadmin',         // позволим админу всё, что позволено модератору
         ),
         'bizRule' => null,
         'data' => null
